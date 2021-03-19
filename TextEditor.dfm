@@ -143,6 +143,10 @@ object FrmTextEditor: TFrmTextEditor
     Options.AutoDetectEnabled = False
     Options.AutoDetectLineLimit = 0
     Options.Visible = False
+    CommentAttri.Foreground = clGreen
+    KeyAttri.Foreground = clBlue
+    NonKeyAttri.Foreground = clNone
+    StringAttri.Foreground = clSkyBlue
     Left = 736
     Top = 16
   end

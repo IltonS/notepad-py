@@ -40,6 +40,13 @@ type
     MLocalizarProxima: TMenuItem;
     MSubstituir: TMenuItem;
     CodeEditor: TSynEdit;
+    {
+      Algumas palavras reservadas como o 'if' não eram reconhecidas.
+      Alteração feita com base em: https://stackoverflow.com/questions/29576141/delphi-synedit-does-not-recognize-all-keywords-from-the-list-python
+
+      Adicionado o seguinte código na linha 361 de SynHighlighterPython.pas
+      FKeywords.Sort;
+    }
     PythonHighlight: TSynPythonSyn;
     procedure MSairClick(Sender: TObject);
   private
