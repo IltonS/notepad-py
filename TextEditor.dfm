@@ -3,7 +3,7 @@ object FrmTextEditor: TFrmTextEditor
   Top = 165
   Caption = 'Notepad Py'
   ClientHeight = 393
-  ClientWidth = 699
+  ClientWidth = 817
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -15,18 +15,40 @@ object FrmTextEditor: TFrmTextEditor
   Position = poDesigned
   PixelsPerInch = 96
   TextHeight = 13
-  object Memo1: TMemo
+  object CodeEditor: TSynEdit
     Left = 0
     Top = 0
-    Width = 699
+    Width = 817
     Height = 393
     Align = alClient
-    ScrollBars = ssBoth
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -13
+    Font.Name = 'Courier New'
+    Font.Style = []
     TabOrder = 0
+    CodeFolding.CollapsedLineColor = clGrayText
+    CodeFolding.FolderBarLinesColor = clGrayText
+    CodeFolding.ShowCollapsedLine = True
+    CodeFolding.IndentGuidesColor = clGray
+    CodeFolding.IndentGuides = True
+    UseCodeFolding = False
+    Gutter.Font.Charset = DEFAULT_CHARSET
+    Gutter.Font.Color = clWindowText
+    Gutter.Font.Height = -11
+    Gutter.Font.Name = 'Courier New'
+    Gutter.Font.Style = []
+    Gutter.Visible = False
+    Gutter.Width = 0
+    Highlighter = PythonHighlight
+    Options = [eoDragDropEditing, eoEnhanceEndKey, eoGroupUndo, eoScrollPastEol, eoShowScrollHint, eoSmartTabDelete, eoSmartTabs, eoTabsToSpaces]
+    WantTabs = True
+    FontSmoothing = fsmNone
+    ExplicitWidth = 699
   end
   object MainMenu: TMainMenu
-    Left = 624
-    Top = 8
+    Left = 664
+    Top = 16
     object Arquivo1: TMenuItem
       Caption = 'Arquivo'
       object MNovo: TMenuItem
@@ -116,5 +138,12 @@ object FrmTextEditor: TFrmTextEditor
         Caption = 'Sobre o Notepad Py'
       end
     end
+  end
+  object PythonHighlight: TSynPythonSyn
+    Options.AutoDetectEnabled = False
+    Options.AutoDetectLineLimit = 0
+    Options.Visible = False
+    Left = 736
+    Top = 16
   end
 end

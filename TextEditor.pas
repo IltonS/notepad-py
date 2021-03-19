@@ -4,7 +4,8 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, SynEdit,
+  SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython;
 
 type
   TFrmTextEditor = class(TForm)
@@ -13,7 +14,6 @@ type
     N1: TMenuItem;
     MSair: TMenuItem;
     Ajuda1: TMenuItem;
-    Memo1: TMemo;
     MNovo: TMenuItem;
     MAbrir: TMenuItem;
     MSalvar: TMenuItem;
@@ -39,6 +39,8 @@ type
     MLocalizar: TMenuItem;
     MLocalizarProxima: TMenuItem;
     MSubstituir: TMenuItem;
+    CodeEditor: TSynEdit;
+    PythonHighlight: TSynPythonSyn;
     procedure MSairClick(Sender: TObject);
   private
     { Private declarations }
