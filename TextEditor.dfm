@@ -44,7 +44,6 @@ object FrmTextEditor: TFrmTextEditor
     Options = [eoDragDropEditing, eoEnhanceEndKey, eoGroupUndo, eoScrollPastEol, eoShowScrollHint, eoSmartTabDelete, eoSmartTabs, eoTabsToSpaces]
     WantTabs = True
     FontSmoothing = fsmNone
-    ExplicitWidth = 699
   end
   object MainMenu: TMainMenu
     Left = 664
@@ -55,7 +54,9 @@ object FrmTextEditor: TFrmTextEditor
         Caption = 'Novo'
       end
       object MAbrir: TMenuItem
-        Caption = 'Abrir'
+        Caption = 'Abri&r'
+        ShortCut = 16463
+        OnClick = MAbrirClick
       end
       object MSalvar: TMenuItem
         Caption = 'Salvar'
@@ -73,7 +74,8 @@ object FrmTextEditor: TFrmTextEditor
         Caption = '-'
       end
       object MSair: TMenuItem
-        Caption = 'Sair'
+        Caption = '&Sair'
+        ShortCut = 32883
         OnClick = MSairClick
       end
     end
@@ -105,13 +107,15 @@ object FrmTextEditor: TFrmTextEditor
       end
       object MQuebraLinha: TMenuItem
         Caption = 'Quebra de linha'
-        Checked = True
+        OnClick = MQuebraLinhaClick
       end
       object N6: TMenuItem
         Caption = '-'
       end
       object MRodar: TMenuItem
-        Caption = 'Rodar'
+        Caption = '&Rodar'
+        ShortCut = 116
+        OnClick = MRodarClick
       end
     end
     object Busca1: TMenuItem
@@ -130,6 +134,8 @@ object FrmTextEditor: TFrmTextEditor
       Caption = 'Ajuda'
       object MTopicosAjuda: TMenuItem
         Caption = 'T'#243'picos da ajuda (online)'
+        ShortCut = 112
+        OnClick = MTopicosAjudaClick
       end
       object N3: TMenuItem
         Caption = '-'
@@ -149,5 +155,10 @@ object FrmTextEditor: TFrmTextEditor
     StringAttri.Foreground = clSkyBlue
     Left = 736
     Top = 16
+  end
+  object OpenDialog: TOpenDialog
+    Filter = 'Python Files|*.py'
+    Left = 744
+    Top = 80
   end
 end
