@@ -64,12 +64,6 @@ object FrmTextEditor: TFrmTextEditor
       object MSalvarComo: TMenuItem
         Caption = 'Salvar como...'
       end
-      object N2: TMenuItem
-        Caption = '-'
-      end
-      object MPythonSetup: TMenuItem
-        Caption = 'Python Setup'
-      end
       object N1: TMenuItem
         Caption = '-'
       end
@@ -131,7 +125,7 @@ object FrmTextEditor: TFrmTextEditor
       end
     end
     object Ajuda1: TMenuItem
-      Caption = 'Ajuda'
+      Caption = 'Aj&uda'
       object MTopicosAjuda: TMenuItem
         Caption = 'T'#243'picos da ajuda (online)'
         ShortCut = 112
@@ -141,7 +135,8 @@ object FrmTextEditor: TFrmTextEditor
         Caption = '-'
       end
       object MSobre: TMenuItem
-        Caption = 'Sobre o Notepad Py'
+        Caption = 'So&bre o Notepad Py'
+        OnClick = MSobreClick
       end
     end
   end

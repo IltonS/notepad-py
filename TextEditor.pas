@@ -5,7 +5,7 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, SynEdit,
-  SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI;
+  SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI, About;
 
 type
   TFrmTextEditor = class(TForm)
@@ -18,8 +18,6 @@ type
     MAbrir: TMenuItem;
     MSalvar: TMenuItem;
     MSalvarComo: TMenuItem;
-    MPythonSetup: TMenuItem;
-    N2: TMenuItem;
     MTopicosAjuda: TMenuItem;
     N3: TMenuItem;
     MSobre: TMenuItem;
@@ -54,6 +52,7 @@ type
     procedure MAbrirClick(Sender: TObject);
     procedure MRodarClick(Sender: TObject);
     procedure MQuebraLinhaClick(Sender: TObject);
+    procedure MSobreClick(Sender: TObject);
   private
     { Private declarations }
     OpenedFileName : string;
@@ -92,6 +91,11 @@ end;
 procedure TFrmTextEditor.MSairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TFrmTextEditor.MSobreClick(Sender: TObject);
+begin
+  AboutBox.ShowModal;
 end;
 
 procedure TFrmTextEditor.MTopicosAjudaClick(Sender: TObject);
