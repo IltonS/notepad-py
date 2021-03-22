@@ -42,7 +42,7 @@ var
   MS: TMemoryStatus;
 begin
   GlobalMemoryStatus(MS);
-  LblMemory.Caption := FormatFloat('#,###" MB"', MS.dwTotalPhys / 1024 / 1024);
+  LblMemory.Caption := FormatFloat('#,###" GB"', MS.dwAvailPhys /1024 /1024 /1024);
 end;
 
 end.

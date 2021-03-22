@@ -1,4 +1,4 @@
-unit TextEditor;
+unit Main;
 
 interface
 
@@ -8,7 +8,7 @@ uses
   SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI, About;
 
 type
-  TFrmTextEditor = class(TForm)
+  TMainForm = class(TForm)
     MainMenu: TMainMenu;
     Arquivo1: TMenuItem;
     N1: TMenuItem;
@@ -37,7 +37,7 @@ type
     MLocalizar: TMenuItem;
     MLocalizarProxima: TMenuItem;
     MSubstituir: TMenuItem;
-    CodeEditor: TSynEdit;
+    SynEdit: TSynEdit;
     {
       Algumas palavras reservadas como o 'if' não eram reconhecidas.
       Alteração feita com base em: https://stackoverflow.com/questions/29576141/delphi-synedit-does-not-recognize-all-keywords-from-the-list-python
@@ -61,44 +61,44 @@ type
   end;
 
 var
-  FrmTextEditor: TFrmTextEditor;
+  MainForm: TMainForm;
 
 implementation
 
 {$R *.dfm}
 
-procedure TFrmTextEditor.MAbrirClick(Sender: TObject);
+procedure TMainForm.MAbrirClick(Sender: TObject);
 begin
   if OpenDialog.Execute then
   begin
-    CodeEditor.Lines.LoadFromFile(OpenDialog.FileName,TEncoding.UTF8);
+    SynEdit.Lines.LoadFromFile(OpenDialog.FileName,TEncoding.UTF8);
     Self.OpenedFileName := OpenDialog.FileName;
     Self.Caption := ExtractFileName(OpenDialog.FileName) + ' - Notepad Py';
   end;
 end;
 
-procedure TFrmTextEditor.MQuebraLinhaClick(Sender: TObject);
+procedure TMainForm.MQuebraLinhaClick(Sender: TObject);
 begin
   MQuebraLinha.Checked := not MQuebraLinha.Checked;
-  CodeEditor.WordWrap := MQuebraLinha.Checked;
+  SynEdit.WordWrap := MQuebraLinha.Checked;
 end;
 
-procedure TFrmTextEditor.MRodarClick(Sender: TObject);
+procedure TMainForm.MRodarClick(Sender: TObject);
 begin
   ShellExecute(0, nil,'cmd', PChar('/C py ' + Self.OpenedFileName + ' & pause'), '', SW_NORMAL);
 end;
 
-procedure TFrmTextEditor.MSairClick(Sender: TObject);
+procedure TMainForm.MSairClick(Sender: TObject);
 begin
   Close;
 end;
 
-procedure TFrmTextEditor.MSobreClick(Sender: TObject);
+procedure TMainForm.MSobreClick(Sender: TObject);
 begin
   AboutBox.ShowModal;
 end;
 
-procedure TFrmTextEditor.MTopicosAjudaClick(Sender: TObject);
+procedure TMainForm.MTopicosAjudaClick(Sender: TObject);
 begin
   ShellExecute(Handle, 'Open', PChar('https://docs.python.org/pt-br/3/'), '', '', SW_NORMAL);
 end;

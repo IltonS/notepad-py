@@ -1,4 +1,4 @@
-object FrmTextEditor: TFrmTextEditor
+object MainForm: TMainForm
   Left = 342
   Top = 165
   Caption = 'Notepad Py'
@@ -15,7 +15,7 @@ object FrmTextEditor: TFrmTextEditor
   Position = poDesigned
   PixelsPerInch = 96
   TextHeight = 13
-  object CodeEditor: TSynEdit
+  object SynEdit: TSynEdit
     Left = 0
     Top = 0
     Width = 817
