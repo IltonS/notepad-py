@@ -54,18 +54,24 @@ object MainForm: TMainForm
     object Arquivo1: TMenuItem
       Caption = 'Arquivo'
       object MNovo: TMenuItem
-        Caption = 'Novo'
+        Caption = '&Novo'
+        ShortCut = 16462
+        OnClick = MNovoClick
       end
       object MAbrir: TMenuItem
-        Caption = 'Abri&r'
+        Caption = 'A&brir'
         ShortCut = 16463
         OnClick = MAbrirClick
       end
       object MSalvar: TMenuItem
-        Caption = 'Salvar'
+        Caption = 'Salva&r'
+        ShortCut = 16467
+        OnClick = MSalvarClick
       end
       object MSalvarComo: TMenuItem
-        Caption = 'Salvar como...'
+        Caption = 'Salvar &Como...'
+        ShortCut = 24659
+        OnClick = MSalvarComoClick
       end
       object N1: TMenuItem
         Caption = '-'
@@ -92,9 +98,6 @@ object MainForm: TMainForm
       end
       object MColar: TMenuItem
         Caption = 'Colar'
-      end
-      object MDeletar: TMenuItem
-        Caption = 'Deletar'
       end
       object N5: TMenuItem
         Caption = '-'
@@ -130,7 +133,7 @@ object MainForm: TMainForm
     object Ajuda1: TMenuItem
       Caption = 'Aj&uda'
       object MTopicosAjuda: TMenuItem
-        Caption = 'T'#243'picos da ajuda (online)'
+        Caption = 'T'#243'picos da &ajuda (online)'
         ShortCut = 112
         OnClick = MTopicosAjudaClick
       end
@@ -157,6 +160,11 @@ object MainForm: TMainForm
   object OpenDialog: TOpenDialog
     Filter = 'Python Files|*.py'
     Left = 744
+    Top = 80
+  end
+  object SaveDialog: TSaveDialog
+    Filter = 'Python Files|*.py'
+    Left = 664
     Top = 80
   end
 end

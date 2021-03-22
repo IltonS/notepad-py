@@ -21,6 +21,7 @@ type
     LblInUse: TLabel;
     procedure BtnFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
+    procedure FormActivate(Sender: TObject);
   private
     { Private declarations }
   public
@@ -39,13 +40,18 @@ begin
   Close;
 end;
 
+procedure TAboutBox.FormActivate(Sender: TObject);
+begin
+  BtnFechar.SetFocus
+end;
+
 procedure TAboutBox.FormCreate(Sender: TObject);
 var
   MS: TMemoryStatus;
 begin
   GlobalMemoryStatus(MS);
   LblMemory.Caption := FormatFloat('#,###" GB"', MS.dwAvailPhys /1024 /1024 /1024);
-  LblInUse.Caption := Format('%d %%', [MS.dwMemoryLoad]);
+  LblInUse.Caption := Format('%d %%', [MS.dwMemoryLoad])
 end;
 
 end.

@@ -13,6 +13,7 @@ object AboutBox: TAboutBox
   Font.Style = []
   OldCreateOrder = False
   Position = poDesigned
+  OnActivate = FormActivate
   OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13

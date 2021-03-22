@@ -27,7 +27,6 @@ type
     MRecortar: TMenuItem;
     MCopiar: TMenuItem;
     MColar: TMenuItem;
-    MDeletar: TMenuItem;
     N5: TMenuItem;
     MSelecionarTudo: TMenuItem;
     MQuebraLinha: TMenuItem;
@@ -47,6 +46,7 @@ type
     }
     PythonHighlight: TSynPythonSyn;
     OpenDialog: TOpenDialog;
+    SaveDialog: TSaveDialog;
     procedure MSairClick(Sender: TObject);
     procedure MTopicosAjudaClick(Sender: TObject);
     procedure MAbrirClick(Sender: TObject);
@@ -61,6 +61,9 @@ type
     procedure SetModified(Value: Boolean);
     procedure SynEditChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
+    procedure MNovoClick(Sender: TObject);
+    procedure MSalvarComoClick(Sender: TObject);
+    procedure MSalvarClick(Sender: TObject);
   private
     { Private declarations }
     FFileName: string;
@@ -110,7 +113,7 @@ begin
   SaveResp := MessageDlg(Format(sSaveChanges, [FFileName]), mtConfirmation, mbYesNoCancel, 0);
 
   case SaveResp of
-    idYes: {FileSave(Self)};
+    idYes: MSalvarClick(Self);
     idNo: {Nothing};
     idCancel: Abort;
   end;
@@ -130,7 +133,7 @@ end;
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   OpenDialog.InitialDir := ExtractFilePath(ParamStr(0));
-  //SaveDialog.InitialDir := OpenDialog.InitialDir;
+  SaveDialog.InitialDir := OpenDialog.InitialDir;
   SetFileName(sUntitled);
 end;
 
@@ -143,6 +146,15 @@ begin
   end
 end;
 
+procedure TMainForm.MNovoClick(Sender: TObject);
+begin
+  CheckFileSave;
+  SetFileName(sUntitled);
+  SynEdit.Lines.Clear;
+  SynEdit.Modified := False;
+  SetModified(False);
+end;
+
 procedure TMainForm.MQuebraLinhaClick(Sender: TObject);
 begin
   MQuebraLinha.Checked := not MQuebraLinha.Checked;
@@ -151,12 +163,43 @@ end;
 
 procedure TMainForm.MRodarClick(Sender: TObject);
 begin
+  CheckFileSave;
   ShellExecute(0, nil,'cmd', PChar('/C py ' + FFileName + ' & pause'), '', SW_NORMAL);
 end;
 
 procedure TMainForm.MSairClick(Sender: TObject);
 begin
   Close;
+end;
+
+procedure TMainForm.MSalvarClick(Sender: TObject);
+begin
+  if FFileName = sUntitled then
+    MSalvarComoClick(Sender)
+  else
+  begin
+    SynEdit.Lines.SaveToFile(FFileName, TEncoding.UTF8);
+    SynEdit.Modified := False;
+    SetModified(False);
+  end;
+end;
+
+procedure TMainForm.MSalvarComoClick(Sender: TObject);
+begin
+if SaveDialog.Execute then
+  begin
+    if FileExists(SaveDialog.FileName) then
+      if MessageDlg(Format(sOverWrite, [SaveDialog.FileName]), mtConfirmation, mbYesNoCancel, 0) <> idYes then
+        Exit;
+
+    if ExtractFileExt(SaveDialog.FileName) <> '.py' then
+      SaveDialog.FileName := SaveDialog.FileName + '.py';
+
+    SynEdit.Lines.SaveToFile(SaveDialog.FileName, TEncoding.UTF8);
+    SetFileName(SaveDialog.FileName);
+    SynEdit.Modified := False;
+    SetModified(False);
+  end;
 end;
 
 procedure TMainForm.MSobreClick(Sender: TObject);
