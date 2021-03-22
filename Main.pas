@@ -53,12 +53,25 @@ type
     procedure MRodarClick(Sender: TObject);
     procedure MQuebraLinhaClick(Sender: TObject);
     procedure MSobreClick(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+
+    procedure SetFileName(const FileName: String);
+    procedure CheckFileSave;
+    procedure PerformFileOpen(const AFileName: string);
+    procedure SetModified(Value: Boolean);
+    procedure SynEditChange(Sender: TObject);
+    procedure FormClose(Sender: TObject; var Action: TCloseAction);
   private
     { Private declarations }
-    OpenedFileName : string;
+    FFileName: string;
   public
     { Public declarations }
   end;
+
+resourcestring
+  sSaveChanges = 'Deseja salvar as alterações em %s?';
+  sOverWrite = 'OK para substituir %s';
+  sUntitled = 'Sem Título';
 
 var
   MainForm: TMainForm;
@@ -66,15 +79,68 @@ var
 implementation
 
 {$R *.dfm}
+procedure TMainForm.SetModified(Value: Boolean);
+begin
+  if Value then
+    Caption := Format('*%s - %s', [ExtractFileName(FFileName), Application.Title])
+  else
+    Caption := Format('%s - %s', [ExtractFileName(FFileName), Application.Title]);
+end;
+
+procedure TMainForm.SynEditChange(Sender: TObject);
+begin
+  SetModified(SynEdit.Modified);
+end;
+
+procedure TMainForm.PerformFileOpen(const AFileName: string);
+begin
+  SynEdit.Lines.LoadFromFile(AFileName, TEncoding.UTF8);
+  SetFileName(AFileName);
+  SynEdit.SetFocus;
+  SynEdit.Modified := False;
+  SetModified(False);
+end;
+
+procedure TMainForm.CheckFileSave;
+var
+  SaveResp: Integer;
+begin
+  if not SynEdit.Modified then Exit;
+
+  SaveResp := MessageDlg(Format(sSaveChanges, [FFileName]), mtConfirmation, mbYesNoCancel, 0);
+
+  case SaveResp of
+    idYes: {FileSave(Self)};
+    idNo: {Nothing};
+    idCancel: Abort;
+  end;
+end;
+
+procedure TMainForm.SetFileName(const FileName: string);
+begin
+  FFileName := FileName;
+  Caption := Format('%s - %s', [ExtractFileName(FileName), Application.Title]);
+end;
+
+procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  CheckFileSave
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  OpenDialog.InitialDir := ExtractFilePath(ParamStr(0));
+  //SaveDialog.InitialDir := OpenDialog.InitialDir;
+  SetFileName(sUntitled);
+end;
 
 procedure TMainForm.MAbrirClick(Sender: TObject);
 begin
+  CheckFileSave;
   if OpenDialog.Execute then
   begin
-    SynEdit.Lines.LoadFromFile(OpenDialog.FileName,TEncoding.UTF8);
-    Self.OpenedFileName := OpenDialog.FileName;
-    Self.Caption := ExtractFileName(OpenDialog.FileName) + ' - Notepad Py';
-  end;
+    PerformFileOpen(OpenDialog.FileName);
+  end
 end;
 
 procedure TMainForm.MQuebraLinhaClick(Sender: TObject);
@@ -85,7 +151,7 @@ end;
 
 procedure TMainForm.MRodarClick(Sender: TObject);
 begin
-  ShellExecute(0, nil,'cmd', PChar('/C py ' + Self.OpenedFileName + ' & pause'), '', SW_NORMAL);
+  ShellExecute(0, nil,'cmd', PChar('/C py ' + FFileName + ' & pause'), '', SW_NORMAL);
 end;
 
 procedure TMainForm.MSairClick(Sender: TObject);

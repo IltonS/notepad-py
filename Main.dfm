@@ -13,6 +13,8 @@ object MainForm: TMainForm
   Menu = MainMenu
   OldCreateOrder = False
   Position = poDesigned
+  OnClose = FormClose
+  OnCreate = FormCreate
   PixelsPerInch = 96
   TextHeight = 13
   object SynEdit: TSynEdit
@@ -43,6 +45,7 @@ object MainForm: TMainForm
     Highlighter = PythonHighlight
     Options = [eoDragDropEditing, eoEnhanceEndKey, eoGroupUndo, eoScrollPastEol, eoShowScrollHint, eoSmartTabDelete, eoSmartTabs, eoTabsToSpaces]
     WantTabs = True
+    OnChange = SynEditChange
     FontSmoothing = fsmNone
   end
   object MainMenu: TMainMenu

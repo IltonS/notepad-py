@@ -3,7 +3,7 @@ object AboutBox: TAboutBox
   Top = 219
   BorderStyle = bsDialog
   Caption = 'Sobre'
-  ClientHeight = 321
+  ClientHeight = 327
   ClientWidth = 294
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
@@ -298,6 +298,21 @@ object AboutBox: TAboutBox
     Alignment = taRightJustify
     Caption = 'LblMemory'
   end
+  object Label5: TLabel
+    Left = 24
+    Top = 256
+    Width = 81
+    Height = 13
+    Caption = 'Mem'#243'ria em uso:'
+  end
+  object LblInUse: TLabel
+    Left = 232
+    Top = 256
+    Width = 41
+    Height = 13
+    Alignment = taRightJustify
+    Caption = 'LblInUse'
+  end
   object MemoCopyright: TMemo
     Left = 24
     Top = 107
@@ -343,7 +358,7 @@ object AboutBox: TAboutBox
   end
   object BtnFechar: TButton
     Left = 198
-    Top = 281
+    Top = 283
     Width = 75
     Height = 25
     Caption = '&OK'

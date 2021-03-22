@@ -17,6 +17,8 @@ type
     Label3: TLabel;
     Label4: TLabel;
     LblMemory: TLabel;
+    Label5: TLabel;
+    LblInUse: TLabel;
     procedure BtnFecharClick(Sender: TObject);
     procedure FormCreate(Sender: TObject);
   private
@@ -43,6 +45,7 @@ var
 begin
   GlobalMemoryStatus(MS);
   LblMemory.Caption := FormatFloat('#,###" GB"', MS.dwAvailPhys /1024 /1024 /1024);
+  LblInUse.Caption := Format('%d %%', [MS.dwMemoryLoad]);
 end;
 
 end.
