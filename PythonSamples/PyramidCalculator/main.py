@@ -1,17 +1,16 @@
-﻿def main():
-    menu = -1
+﻿from os import system
+from MainMenu import MainMenu
+
+def main():
+    menu = MainMenu()
+    op = -1
     
-    print("Bem-Vindo(a) a Calculadora de Pirâmides")
-    
-    while menu != 0:
-          print("\nSelecione uma opção:\n")
-          print("    [1] Calcular área da base")
-          print("    [2] Calcular largura da base")
-          print("    [3] Calcular comprimento da base")
-          print("    [4] Calcular altura")
-          print("    [5] Calcular volume")
-          print("    [0] Sair\n")
-          menu = int(input(">"))
+    while op != 0:
+          system('cls')
+          if op == 1:
+             op = menu.print_tela_altura()
+          else:
+             op = menu.print_tela_inicial()
     
     return 0
 
