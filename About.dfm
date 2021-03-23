@@ -282,7 +282,7 @@ object AboutBox: TAboutBox
     Top = 88
     Width = 39
     Height = 13
-    Caption = 'Licensa:'
+    Caption = 'Licen'#231'a:'
   end
   object Label4: TLabel
     Left = 24

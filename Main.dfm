@@ -53,69 +53,56 @@ object MainForm: TMainForm
     Top = 16
     object Arquivo1: TMenuItem
       Caption = 'Arquivo'
-      object MNovo: TMenuItem
-        Caption = '&Novo'
-        ShortCut = 16462
-        OnClick = MNovoClick
+      object ArquivoNovoItem: TMenuItem
+        Action = ArquivoNovoCmd
       end
-      object MAbrir: TMenuItem
-        Caption = 'A&brir'
-        ShortCut = 16463
-        OnClick = MAbrirClick
+      object ArquivoAbrirItem: TMenuItem
+        Action = ArquivoAbrirCmd
       end
-      object MSalvar: TMenuItem
-        Caption = 'Salva&r'
-        ShortCut = 16467
-        OnClick = MSalvarClick
+      object ArquivoSalvarItem: TMenuItem
+        Action = ArquivoSalvarCmd
       end
-      object MSalvarComo: TMenuItem
-        Caption = 'Salvar &Como...'
-        ShortCut = 24659
-        OnClick = MSalvarComoClick
+      object ArquivoSalvarComoItem: TMenuItem
+        Action = ArquivoSalvarComoCmd
       end
       object N1: TMenuItem
         Caption = '-'
       end
-      object MSair: TMenuItem
-        Caption = '&Sair'
-        ShortCut = 32883
-        OnClick = MSairClick
+      object ArquivoSairItem: TMenuItem
+        Action = ArquivoSairCmd
       end
     end
     object Editar1: TMenuItem
       Caption = 'Editar'
-      object MDesfazer: TMenuItem
-        Caption = 'Desfazer'
+      object EditarDesfazerItem: TMenuItem
+        Action = EditarDesfazerCmd
       end
       object N4: TMenuItem
         Caption = '-'
       end
-      object MRecortar: TMenuItem
-        Caption = 'Recortar'
+      object EditarRecortarItem: TMenuItem
+        Action = EditarRecortarCmd
       end
-      object MCopiar: TMenuItem
-        Caption = 'Copiar'
+      object EditarCopiarItem: TMenuItem
+        Action = EditarCopiarCmd
       end
-      object MColar: TMenuItem
-        Caption = 'Colar'
+      object EditarColarItem: TMenuItem
+        Action = EditarColarCmd
       end
       object N5: TMenuItem
         Caption = '-'
       end
-      object MSelecionarTudo: TMenuItem
-        Caption = 'Selecionar tudo'
+      object EditarSelecionarTudoItem: TMenuItem
+        Action = EditarSelecionarTudoCmd
       end
-      object MQuebraLinha: TMenuItem
-        Caption = 'Quebra de linha'
-        OnClick = MQuebraLinhaClick
+      object EditarQuebraLinhaItem: TMenuItem
+        Action = EditarQuebraLinhaCmd
       end
       object N6: TMenuItem
         Caption = '-'
       end
-      object MRodar: TMenuItem
-        Caption = '&Rodar'
-        ShortCut = 116
-        OnClick = MRodarClick
+      object EditarRodarItem: TMenuItem
+        Action = EditarRodarCmd
       end
     end
     object Busca1: TMenuItem
@@ -132,17 +119,14 @@ object MainForm: TMainForm
     end
     object Ajuda1: TMenuItem
       Caption = 'Aj&uda'
-      object MTopicosAjuda: TMenuItem
-        Caption = 'T'#243'picos da &ajuda (online)'
-        ShortCut = 112
-        OnClick = MTopicosAjudaClick
+      object AjudaDocumentacaoPythonItem: TMenuItem
+        Action = AjudaDocumentacaoPythonCmd
       end
       object N3: TMenuItem
         Caption = '-'
       end
-      object MSobre: TMenuItem
-        Caption = 'So&bre o Notepad Py'
-        OnClick = MSobreClick
+      object AjudaSobreItem: TMenuItem
+        Action = AjudaSobreCmd
       end
     end
   end
@@ -154,8 +138,8 @@ object MainForm: TMainForm
     KeyAttri.Foreground = clBlue
     NonKeyAttri.Foreground = clNone
     StringAttri.Foreground = clSkyBlue
-    Left = 736
-    Top = 16
+    Left = 744
+    Top = 144
   end
   object OpenDialog: TOpenDialog
     Filter = 'Python Files|*.py'
@@ -166,5 +150,91 @@ object MainForm: TMainForm
     Filter = 'Python Files|*.py'
     Left = 664
     Top = 80
+  end
+  object ActionList: TActionList
+    OnUpdate = ActionListUpdate
+    Left = 744
+    Top = 16
+    object ArquivoNovoCmd: TAction
+      Category = 'Arquivo'
+      Caption = '&Novo'
+      ShortCut = 16462
+      OnExecute = ArquivoNovo
+    end
+    object ArquivoAbrirCmd: TAction
+      Category = 'Arquivo'
+      Caption = 'A&brir'
+      ShortCut = 16463
+      OnExecute = ArquivoAbrir
+    end
+    object ArquivoSalvarCmd: TAction
+      Category = 'Arquivo'
+      Caption = 'Salva&r'
+      ShortCut = 16467
+      OnExecute = ArquivoSalvar
+    end
+    object ArquivoSalvarComoCmd: TAction
+      Category = 'Arquivo'
+      Caption = 'Salvar &como'
+      ShortCut = 24659
+      OnExecute = ArquivoSalvarComo
+    end
+    object ArquivoSairCmd: TAction
+      Category = 'Arquivo'
+      Caption = '&Sair'
+      OnExecute = ArquivoSair
+    end
+    object EditarDesfazerCmd: TAction
+      Category = 'Editar'
+      Caption = 'Des&fazer'
+      ShortCut = 16474
+      OnExecute = EditarDesfazer
+    end
+    object EditarRecortarCmd: TAction
+      Category = 'Editar'
+      Caption = '&Recortar'
+      ShortCut = 16472
+      OnExecute = EditarRecortar
+    end
+    object EditarCopiarCmd: TAction
+      Category = 'Editar'
+      Caption = '&Copiar'
+      ShortCut = 16451
+      OnExecute = EditarCopiar
+    end
+    object EditarColarCmd: TAction
+      Category = 'Editar'
+      Caption = 'Co&lar'
+      ShortCut = 16470
+      OnExecute = EditarColar
+    end
+    object EditarSelecionarTudoCmd: TAction
+      Category = 'Editar'
+      Caption = 'Selecionar &tudo'
+      ShortCut = 16449
+      OnExecute = EditarSelecionarTudo
+    end
+    object EditarQuebraLinhaCmd: TAction
+      Category = 'Editar'
+      Caption = '&Quebra autom'#225'tica de linha'
+      OnExecute = EditarQuebraLinha
+    end
+    object EditarRodarCmd: TAction
+      Category = 'Editar'
+      Caption = 'R&odar'
+      ShortCut = 116
+      OnExecute = EditarRodar
+    end
+    object AjudaDocumentacaoPythonCmd: TAction
+      Category = 'Ajuda'
+      Caption = '&Documenta'#231#227'o do Python'
+      ShortCut = 112
+      OnExecute = AjudaDocumentacaoPython
+    end
+    object AjudaSobreCmd: TAction
+      Category = 'Ajuda'
+      Caption = 'So&bre o Notepad Py'
+      OnExecute = AjudaSobre
+    end
   end
 end

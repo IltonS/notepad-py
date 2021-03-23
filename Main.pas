@@ -5,33 +5,34 @@ interface
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, SynEdit,
-  SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI, About;
+  SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI, About,
+  System.Actions, Vcl.ActnList, Vcl.ComCtrls, RichEdit;
 
 type
   TMainForm = class(TForm)
     MainMenu: TMainMenu;
     Arquivo1: TMenuItem;
     N1: TMenuItem;
-    MSair: TMenuItem;
+    ArquivoSairItem: TMenuItem;
     Ajuda1: TMenuItem;
-    MNovo: TMenuItem;
-    MAbrir: TMenuItem;
-    MSalvar: TMenuItem;
-    MSalvarComo: TMenuItem;
-    MTopicosAjuda: TMenuItem;
+    ArquivoNovoItem: TMenuItem;
+    ArquivoAbrirItem: TMenuItem;
+    ArquivoSalvarItem: TMenuItem;
+    ArquivoSalvarComoItem: TMenuItem;
+    AjudaDocumentacaoPythonItem: TMenuItem;
     N3: TMenuItem;
-    MSobre: TMenuItem;
+    AjudaSobreItem: TMenuItem;
     Editar1: TMenuItem;
-    MDesfazer: TMenuItem;
+    EditarDesfazerItem: TMenuItem;
     N4: TMenuItem;
-    MRecortar: TMenuItem;
-    MCopiar: TMenuItem;
-    MColar: TMenuItem;
+    EditarRecortarItem: TMenuItem;
+    EditarCopiarItem: TMenuItem;
+    EditarColarItem: TMenuItem;
     N5: TMenuItem;
-    MSelecionarTudo: TMenuItem;
-    MQuebraLinha: TMenuItem;
+    EditarSelecionarTudoItem: TMenuItem;
+    EditarQuebraLinhaItem: TMenuItem;
     N6: TMenuItem;
-    MRodar: TMenuItem;
+    EditarRodarItem: TMenuItem;
     Busca1: TMenuItem;
     MLocalizar: TMenuItem;
     MLocalizarProxima: TMenuItem;
@@ -47,23 +48,43 @@ type
     PythonHighlight: TSynPythonSyn;
     OpenDialog: TOpenDialog;
     SaveDialog: TSaveDialog;
-    procedure MSairClick(Sender: TObject);
-    procedure MTopicosAjudaClick(Sender: TObject);
-    procedure MAbrirClick(Sender: TObject);
-    procedure MRodarClick(Sender: TObject);
-    procedure MQuebraLinhaClick(Sender: TObject);
-    procedure MSobreClick(Sender: TObject);
+    ActionList: TActionList;
+    ArquivoNovoCmd: TAction;
+    ArquivoAbrirCmd: TAction;
+    ArquivoSalvarCmd: TAction;
+    ArquivoSalvarComoCmd: TAction;
+    ArquivoSairCmd: TAction;
+    EditarDesfazerCmd: TAction;
+    EditarRecortarCmd: TAction;
+    EditarCopiarCmd: TAction;
+    EditarColarCmd: TAction;
+    EditarSelecionarTudoCmd: TAction;
+    EditarQuebraLinhaCmd: TAction;
+    EditarRodarCmd: TAction;
+    AjudaDocumentacaoPythonCmd: TAction;
+    AjudaSobreCmd: TAction;
     procedure FormCreate(Sender: TObject);
-
     procedure SetFileName(const FileName: String);
     procedure CheckFileSave;
     procedure PerformFileOpen(const AFileName: string);
     procedure SetModified(Value: Boolean);
     procedure SynEditChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
-    procedure MNovoClick(Sender: TObject);
-    procedure MSalvarComoClick(Sender: TObject);
-    procedure MSalvarClick(Sender: TObject);
+    procedure ArquivoNovo(Sender: TObject);
+    procedure ArquivoAbrir(Sender: TObject);
+    procedure ArquivoSalvar(Sender: TObject);
+    procedure ArquivoSalvarComo(Sender: TObject);
+    procedure ArquivoSair(Sender: TObject);
+    procedure EditarRecortar(Sender: TObject);
+    procedure EditarCopiar(Sender: TObject);
+    procedure EditarColar(Sender: TObject);
+    procedure EditarSelecionarTudo(Sender: TObject);
+    procedure EditarQuebraLinha(Sender: TObject);
+    procedure EditarRodar(Sender: TObject);
+    procedure AjudaDocumentacaoPython(Sender: TObject);
+    procedure AjudaSobre(Sender: TObject);
+    procedure EditarDesfazer(Sender: TObject);
+    procedure ActionListUpdate(Action: TBasicAction; var Handled: Boolean);
   private
     { Private declarations }
     FFileName: string;
@@ -73,7 +94,7 @@ type
 
 resourcestring
   sSaveChanges = 'Deseja salvar as alterações em %s?';
-  sOverWrite = 'OK para substituir %s';
+  sOverWrite = '%s já existe.' + #13 + 'Deseja Substituí-lo?';
   sUntitled = 'Sem Título';
 
 var
@@ -82,6 +103,28 @@ var
 implementation
 
 {$R *.dfm}
+
+procedure TMainForm.CheckFileSave;
+var
+  SaveResp: Integer;
+begin
+  if not SynEdit.Modified then Exit;
+
+  SaveResp := MessageDlg(Format(sSaveChanges, [FFileName]), mtConfirmation, mbYesNoCancel, 0);
+
+  case SaveResp of
+    idYes: ArquivoSalvar(Self);
+    idNo: {Nothing};
+    idCancel: Abort;
+  end;
+end;
+
+procedure TMainForm.SetFileName(const FileName: string);
+begin
+  FFileName := FileName;
+  Caption := Format('%s - %s', [ExtractFileName(FileName), Application.Title]);
+end;
+
 procedure TMainForm.SetModified(Value: Boolean);
 begin
   if Value then
@@ -104,40 +147,26 @@ begin
   SetModified(False);
 end;
 
-procedure TMainForm.CheckFileSave;
-var
-  SaveResp: Integer;
+procedure TMainForm.ActionListUpdate(Action: TBasicAction;
+  var Handled: Boolean);
 begin
-  if not SynEdit.Modified then Exit;
-
-  SaveResp := MessageDlg(Format(sSaveChanges, [FFileName]), mtConfirmation, mbYesNoCancel, 0);
-
-  case SaveResp of
-    idYes: MSalvarClick(Self);
-    idNo: {Nothing};
-    idCancel: Abort;
-  end;
+  EditarRecortarCmd.Enabled := SynEdit.SelLength > 0;
+  EditarCopiarCmd.Enabled := EditarRecortarCmd.Enabled;
+  EditarDesfazerCmd.Enabled := SynEdit.CanUndo;
+  EditarColarCmd.Enabled := SynEdit.CanPaste;
 end;
 
-procedure TMainForm.SetFileName(const FileName: string);
+procedure TMainForm.AjudaDocumentacaoPython(Sender: TObject);
 begin
-  FFileName := FileName;
-  Caption := Format('%s - %s', [ExtractFileName(FileName), Application.Title]);
+  ShellExecute(Handle, 'Open', PChar('https://docs.python.org/pt-br/3/'), '', '', SW_NORMAL);
 end;
 
-procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
+procedure TMainForm.AjudaSobre(Sender: TObject);
 begin
-  CheckFileSave
+  AboutBox.ShowModal;
 end;
 
-procedure TMainForm.FormCreate(Sender: TObject);
-begin
-  OpenDialog.InitialDir := ExtractFilePath(ParamStr(0));
-  SaveDialog.InitialDir := OpenDialog.InitialDir;
-  SetFileName(sUntitled);
-end;
-
-procedure TMainForm.MAbrirClick(Sender: TObject);
+procedure TMainForm.ArquivoAbrir(Sender: TObject);
 begin
   CheckFileSave;
   if OpenDialog.Execute then
@@ -146,7 +175,7 @@ begin
   end
 end;
 
-procedure TMainForm.MNovoClick(Sender: TObject);
+procedure TMainForm.ArquivoNovo(Sender: TObject);
 begin
   CheckFileSave;
   SetFileName(sUntitled);
@@ -155,27 +184,15 @@ begin
   SetModified(False);
 end;
 
-procedure TMainForm.MQuebraLinhaClick(Sender: TObject);
+procedure TMainForm.ArquivoSair(Sender: TObject);
 begin
-  MQuebraLinha.Checked := not MQuebraLinha.Checked;
-  SynEdit.WordWrap := MQuebraLinha.Checked;
+  Close
 end;
 
-procedure TMainForm.MRodarClick(Sender: TObject);
-begin
-  CheckFileSave;
-  ShellExecute(0, nil,'cmd', PChar('/C py ' + FFileName + ' & pause'), '', SW_NORMAL);
-end;
-
-procedure TMainForm.MSairClick(Sender: TObject);
-begin
-  Close;
-end;
-
-procedure TMainForm.MSalvarClick(Sender: TObject);
+procedure TMainForm.ArquivoSalvar(Sender: TObject);
 begin
   if FFileName = sUntitled then
-    MSalvarComoClick(Sender)
+    ArquivoSalvarComo(Sender)
   else
   begin
     SynEdit.Lines.SaveToFile(FFileName, TEncoding.UTF8);
@@ -184,9 +201,9 @@ begin
   end;
 end;
 
-procedure TMainForm.MSalvarComoClick(Sender: TObject);
+procedure TMainForm.ArquivoSalvarComo(Sender: TObject);
 begin
-if SaveDialog.Execute then
+  if SaveDialog.Execute then
   begin
     if FileExists(SaveDialog.FileName) then
       if MessageDlg(Format(sOverWrite, [SaveDialog.FileName]), mtConfirmation, mbYesNoCancel, 0) <> idYes then
@@ -202,14 +219,51 @@ if SaveDialog.Execute then
   end;
 end;
 
-procedure TMainForm.MSobreClick(Sender: TObject);
+procedure TMainForm.EditarColar(Sender: TObject);
 begin
-  AboutBox.ShowModal;
+  SynEdit.PasteFromClipboard;
 end;
 
-procedure TMainForm.MTopicosAjudaClick(Sender: TObject);
+procedure TMainForm.EditarCopiar(Sender: TObject);
 begin
-  ShellExecute(Handle, 'Open', PChar('https://docs.python.org/pt-br/3/'), '', '', SW_NORMAL);
+  SynEdit.CopyToClipboard
+end;
+
+procedure TMainForm.EditarDesfazer(Sender: TObject);
+begin
+  SynEdit.Undo
+end;
+
+procedure TMainForm.EditarQuebraLinha(Sender: TObject);
+begin
+  EditarQuebraLinhaItem.Checked := not EditarQuebraLinhaItem.Checked;
+  SynEdit.WordWrap := EditarQuebraLinhaItem.Checked;
+end;
+
+procedure TMainForm.EditarRecortar(Sender: TObject);
+begin
+  SynEdit.CutToClipboard
+end;
+
+procedure TMainForm.EditarRodar(Sender: TObject);
+begin
+  CheckFileSave;
+  ShellExecute(0, nil,'cmd', PChar('/C py ' + FFileName + ' & pause'), '', SW_NORMAL);
+end;
+
+procedure TMainForm.EditarSelecionarTudo(Sender: TObject);
+begin
+  SynEdit.SelectAll
+end;
+
+procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
+begin
+  CheckFileSave
+end;
+
+procedure TMainForm.FormCreate(Sender: TObject);
+begin
+  SetFileName(sUntitled);
 end;
 
 end.
