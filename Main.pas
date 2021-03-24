@@ -6,7 +6,8 @@ uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, SynEdit,
   SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI, About,
-  System.Actions, Vcl.ActnList, Vcl.ComCtrls, RichEdit;
+  System.Actions, Vcl.ActnList, Vcl.ComCtrls, RichEdit, SynEditMiscClasses,
+  Vcl.AppEvnts;
 
 type
   TMainForm = class(TForm)
@@ -34,9 +35,9 @@ type
     N6: TMenuItem;
     EditarRodarItem: TMenuItem;
     Busca1: TMenuItem;
-    MLocalizar: TMenuItem;
+    BuscarLocalizarItem: TMenuItem;
     MLocalizarProxima: TMenuItem;
-    MSubstituir: TMenuItem;
+    BuscarSubstituirItem: TMenuItem;
     SynEdit: TSynEdit;
     {
       Algumas palavras reservadas como o 'if' não eram reconhecidas.
@@ -63,10 +64,32 @@ type
     EditarRodarCmd: TAction;
     AjudaDocumentacaoPythonCmd: TAction;
     AjudaSobreCmd: TAction;
+    ArquivoNovaJanelaCmd: TAction;
+    ArquivoNovaJanelaItem: TMenuItem;
+    BuscarLocalizarCmd: TAction;
+    FindDialog: TFindDialog;
+    ReplaceDialog: TReplaceDialog;
+    ApplicationEvents: TApplicationEvents;
+    BuscarSubstituirCmd: TAction;
     procedure FormCreate(Sender: TObject);
+    /// <summary>
+    ///   Rotina para associar o nome de um arquivo recebido pela OpenDialog ou
+    ///   pela SaveDialog a propriedade FFileName do MainForm. Tamém atualiza o
+    ///   caption do formulário com o nome do arquivo.
+    /// </summary>
     procedure SetFileName(const FileName: String);
+    /// <summary>
+    ///   Rotina para verificar se o arquivo foi modificado. Em caso afirmativo
+    ///   chama a rotina para salvar.
+    /// </summary>
     procedure CheckFileSave;
+    /// <summary>
+    ///   Rotina para carregar um arquivo
+    /// </summary>
     procedure PerformFileOpen(const AFileName: string);
+    /// <summary>
+    ///   Altera o caption do formulário para exibir um status de modificado ou não.
+    /// </summary>
     procedure SetModified(Value: Boolean);
     procedure SynEditChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
@@ -81,10 +104,19 @@ type
     procedure EditarSelecionarTudo(Sender: TObject);
     procedure EditarQuebraLinha(Sender: TObject);
     procedure EditarRodar(Sender: TObject);
-    procedure AjudaDocumentacaoPython(Sender: TObject);
+    procedure AjudaDocumentacaoPyhton(Sender: TObject);
     procedure AjudaSobre(Sender: TObject);
     procedure EditarDesfazer(Sender: TObject);
+    /// <summary>
+    ///   Rotina para habilitar ou desabilitar os botões de Desfazer, Recortar, Copiar e Colar
+    /// </summary>
     procedure ActionListUpdate(Action: TBasicAction; var Handled: Boolean);
+    procedure ArquivoNovaJanela(Sender: TObject);
+    procedure BuscarLocalizar(Sender: TObject);
+    procedure FindDialogClose(Sender: TObject);
+    procedure ApplicationEventsException(Sender: TObject; E: Exception);
+    procedure BuscarSubstituir(Sender: TObject);
+    procedure ReplaceDialogClose(Sender: TObject);
   private
     { Private declarations }
     FFileName: string;
@@ -147,6 +179,11 @@ begin
   SetModified(False);
 end;
 
+procedure TMainForm.ReplaceDialogClose(Sender: TObject);
+begin
+  MainForm.SetFocus
+end;
+
 procedure TMainForm.ActionListUpdate(Action: TBasicAction;
   var Handled: Boolean);
 begin
@@ -156,7 +193,7 @@ begin
   EditarColarCmd.Enabled := SynEdit.CanPaste;
 end;
 
-procedure TMainForm.AjudaDocumentacaoPython(Sender: TObject);
+procedure TMainForm.AjudaDocumentacaoPyhton(Sender: TObject);
 begin
   ShellExecute(Handle, 'Open', PChar('https://docs.python.org/pt-br/3/'), '', '', SW_NORMAL);
 end;
@@ -166,6 +203,13 @@ begin
   AboutBox.ShowModal;
 end;
 
+procedure TMainForm.ApplicationEventsException(Sender: TObject; E: Exception);
+begin
+  //By-pass para a mensagem de erro gerada pela FindDialog ao ser aberta pela primeira vez
+  if E.Message <> 'Cannot focus a disabled or invisible window' then
+    MessageDlg(E.Message,mtError,[mbOK], 0)
+end;
+
 procedure TMainForm.ArquivoAbrir(Sender: TObject);
 begin
   CheckFileSave;
@@ -173,6 +217,11 @@ begin
   begin
     PerformFileOpen(OpenDialog.FileName);
   end
+end;
+
+procedure TMainForm.ArquivoNovaJanela(Sender: TObject);
+begin
+  ShellExecute(0, nil, PChar(ParamStr(0)), '', '', SW_NORMAL);
 end;
 
 procedure TMainForm.ArquivoNovo(Sender: TObject);
@@ -186,7 +235,7 @@ end;
 
 procedure TMainForm.ArquivoSair(Sender: TObject);
 begin
-  Close
+  Close;
 end;
 
 procedure TMainForm.ArquivoSalvar(Sender: TObject);
@@ -217,6 +266,16 @@ begin
     SynEdit.Modified := False;
     SetModified(False);
   end;
+end;
+
+procedure TMainForm.BuscarLocalizar(Sender: TObject);
+begin
+    FindDialog.Execute;
+end;
+
+procedure TMainForm.BuscarSubstituir(Sender: TObject);
+begin
+  ReplaceDialog.Execute;
 end;
 
 procedure TMainForm.EditarColar(Sender: TObject);
@@ -254,6 +313,11 @@ end;
 procedure TMainForm.EditarSelecionarTudo(Sender: TObject);
 begin
   SynEdit.SelectAll
+end;
+
+procedure TMainForm.FindDialogClose(Sender: TObject);
+begin
+  MainForm.SetFocus
 end;
 
 procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);

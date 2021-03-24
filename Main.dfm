@@ -3,7 +3,7 @@ object MainForm: TMainForm
   Top = 165
   Caption = 'Notepad Py'
   ClientHeight = 393
-  ClientWidth = 817
+  ClientWidth = 841
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -20,7 +20,7 @@ object MainForm: TMainForm
   object SynEdit: TSynEdit
     Left = 0
     Top = 0
-    Width = 817
+    Width = 841
     Height = 393
     Align = alClient
     Font.Charset = DEFAULT_CHARSET
@@ -52,9 +52,12 @@ object MainForm: TMainForm
     Left = 664
     Top = 16
     object Arquivo1: TMenuItem
-      Caption = 'Arquivo'
+      Caption = '&Arquivo'
       object ArquivoNovoItem: TMenuItem
         Action = ArquivoNovoCmd
+      end
+      object ArquivoNovaJanelaItem: TMenuItem
+        Action = ArquivoNovaJanelaCmd
       end
       object ArquivoAbrirItem: TMenuItem
         Action = ArquivoAbrirCmd
@@ -73,7 +76,7 @@ object MainForm: TMainForm
       end
     end
     object Editar1: TMenuItem
-      Caption = 'Editar'
+      Caption = '&Editar'
       object EditarDesfazerItem: TMenuItem
         Action = EditarDesfazerCmd
       end
@@ -106,15 +109,15 @@ object MainForm: TMainForm
       end
     end
     object Busca1: TMenuItem
-      Caption = 'Busca'
-      object MLocalizar: TMenuItem
-        Caption = 'Localizar'
+      Caption = '&Buscar'
+      object BuscarLocalizarItem: TMenuItem
+        Action = BuscarLocalizarCmd
       end
       object MLocalizarProxima: TMenuItem
         Caption = 'Localizar Pr'#243'xima'
       end
-      object MSubstituir: TMenuItem
-        Caption = 'Substituir'
+      object BuscarSubstituirItem: TMenuItem
+        Action = BuscarSubstituirCmd
       end
     end
     object Ajuda1: TMenuItem
@@ -138,12 +141,12 @@ object MainForm: TMainForm
     KeyAttri.Foreground = clBlue
     NonKeyAttri.Foreground = clNone
     StringAttri.Foreground = clSkyBlue
-    Left = 744
-    Top = 144
+    Left = 672
+    Top = 208
   end
   object OpenDialog: TOpenDialog
     Filter = 'Python Files|*.py'
-    Left = 744
+    Left = 752
     Top = 80
   end
   object SaveDialog: TSaveDialog
@@ -153,7 +156,7 @@ object MainForm: TMainForm
   end
   object ActionList: TActionList
     OnUpdate = ActionListUpdate
-    Left = 744
+    Left = 752
     Top = 16
     object ArquivoNovoCmd: TAction
       Category = 'Arquivo'
@@ -229,12 +232,46 @@ object MainForm: TMainForm
       Category = 'Ajuda'
       Caption = '&Documenta'#231#227'o do Python'
       ShortCut = 112
-      OnExecute = AjudaDocumentacaoPython
+      OnExecute = AjudaDocumentacaoPyhton
     end
     object AjudaSobreCmd: TAction
       Category = 'Ajuda'
       Caption = 'So&bre o Notepad Py'
       OnExecute = AjudaSobre
     end
+    object ArquivoNovaJanelaCmd: TAction
+      Category = 'Arquivo'
+      Caption = 'Nova &janela'
+      ShortCut = 24654
+      OnExecute = ArquivoNovaJanela
+    end
+    object BuscarLocalizarCmd: TAction
+      Category = 'Buscar'
+      Caption = '&Localizar'
+      ShortCut = 16454
+      OnExecute = BuscarLocalizar
+    end
+    object BuscarSubstituirCmd: TAction
+      Category = 'Buscar'
+      Caption = '&Substituir'
+      ShortCut = 16466
+      OnExecute = BuscarSubstituir
+    end
+  end
+  object FindDialog: TFindDialog
+    OnClose = FindDialogClose
+    Options = [frDown, frFindNext]
+    Left = 664
+    Top = 144
+  end
+  object ReplaceDialog: TReplaceDialog
+    OnClose = ReplaceDialogClose
+    Left = 752
+    Top = 144
+  end
+  object ApplicationEvents: TApplicationEvents
+    OnException = ApplicationEventsException
+    Left = 760
+    Top = 208
   end
 end
