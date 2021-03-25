@@ -7,7 +7,7 @@ uses
   Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, SynEdit,
   SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI, About,
   System.Actions, Vcl.ActnList, Vcl.ComCtrls, RichEdit, SynEditMiscClasses,
-  Vcl.AppEvnts;
+  Vcl.AppEvnts, SynEditSearch;
 
 type
   TMainForm = class(TForm)
@@ -36,7 +36,7 @@ type
     EditarRodarItem: TMenuItem;
     Busca1: TMenuItem;
     BuscarLocalizarItem: TMenuItem;
-    MLocalizarProxima: TMenuItem;
+    BuscarLocalizarProximaItem: TMenuItem;
     BuscarSubstituirItem: TMenuItem;
     SynEdit: TSynEdit;
     {
@@ -71,6 +71,8 @@ type
     ReplaceDialog: TReplaceDialog;
     ApplicationEvents: TApplicationEvents;
     BuscarSubstituirCmd: TAction;
+    SynEditSearch: TSynEditSearch;
+    BuscarLocalizarProximaCmd: TAction;
     procedure FormCreate(Sender: TObject);
     /// <summary>
     ///   Rotina para associar o nome de um arquivo recebido pela OpenDialog ou
@@ -117,9 +119,12 @@ type
     procedure ApplicationEventsException(Sender: TObject; E: Exception);
     procedure BuscarSubstituir(Sender: TObject);
     procedure ReplaceDialogClose(Sender: TObject);
+    procedure FindDialogFind(Sender: TObject);
+    procedure BuscarLocalizarProxima(Sender: TObject);
   private
     { Private declarations }
     FFileName: string;
+    SearchIndex : integer;
   public
     { Public declarations }
   end;
@@ -128,6 +133,7 @@ resourcestring
   sSaveChanges = 'Deseja salvar as alterações em %s?';
   sOverWrite = '%s já existe.' + #13 + 'Deseja Substituí-lo?';
   sUntitled = 'Sem Título';
+  sNotFound = 'Não é possível encontrar "%s".';
 
 var
   MainForm: TMainForm;
@@ -268,6 +274,11 @@ begin
   end;
 end;
 
+procedure TMainForm.BuscarLocalizarProxima(Sender: TObject);
+begin
+  FindDialogFind(Sender);
+end;
+
 procedure TMainForm.BuscarLocalizar(Sender: TObject);
 begin
     FindDialog.Execute;
@@ -320,6 +331,50 @@ begin
   MainForm.SetFocus
 end;
 
+procedure TMainForm.FindDialogFind(Sender: TObject);
+begin
+
+  if FindDialog.FindText <> SynEditSearch.Pattern then //É uma nova busca
+  begin
+    SynEditSearch.Pattern := FindDialog.FindText;
+    SynEditSearch.CaseSensitive := frMatchCase in FindDialog.Options;
+    SynEditSearch.Whole := frWholeWord in FindDialog.Options;
+
+    SynEditSearch.FindAll(SynEdit.Lines.Text);
+
+    if SynEditSearch.ResultCount > 0 then //Encontrou resutado
+    begin
+      SearchIndex := 0;
+      SynEdit.SelStart := SynEditSearch.Results[SearchIndex]-1;
+      SynEdit.SelLength := Length(FindDialog.FindText); //Faz a seleção do resultado
+      Inc(SearchIndex); //Incrementa o índice de busca
+    end
+    else //Não Encontrou resultado
+    begin
+      SearchIndex := -1;
+      ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]));
+    end;
+  end
+  else
+  begin //Não é uma nova busca
+    if SynEditSearch.ResultCount > 0 then //Encontrou resutado
+    begin
+      if SearchIndex < SynEditSearch.ResultCount then //Ainda possui resultado para selecionar
+      begin
+        SynEdit.SelStart := SynEditSearch.Results[SearchIndex]-1;
+        SynEdit.SelLength := Length(FindDialog.FindText); //Faz a seleção do resultado
+        Inc(SearchIndex); //Incrementa o índice de busca
+      end
+      else //Não possui mais resultados para mostrar
+        ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]));
+    end
+    else // Não encontrou resultado
+    begin
+      ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]));
+    end;
+  end;
+end;
+
 procedure TMainForm.FormClose(Sender: TObject; var Action: TCloseAction);
 begin
   CheckFileSave
@@ -328,6 +383,7 @@ end;
 procedure TMainForm.FormCreate(Sender: TObject);
 begin
   SetFileName(sUntitled);
+  SearchIndex := -1;
 end;
 
 end.

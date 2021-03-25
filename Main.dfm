@@ -44,6 +44,7 @@ object MainForm: TMainForm
     Gutter.Width = 0
     Highlighter = PythonHighlight
     Options = [eoDragDropEditing, eoEnhanceEndKey, eoGroupUndo, eoScrollPastEol, eoShowScrollHint, eoSmartTabDelete, eoSmartTabs, eoTabsToSpaces]
+    SearchEngine = SynEditSearch
     WantTabs = True
     OnChange = SynEditChange
     FontSmoothing = fsmNone
@@ -113,8 +114,8 @@ object MainForm: TMainForm
       object BuscarLocalizarItem: TMenuItem
         Action = BuscarLocalizarCmd
       end
-      object MLocalizarProxima: TMenuItem
-        Caption = 'Localizar Pr'#243'xima'
+      object BuscarLocalizarProximaItem: TMenuItem
+        Action = BuscarLocalizarProximaCmd
       end
       object BuscarSubstituirItem: TMenuItem
         Action = BuscarSubstituirCmd
@@ -142,7 +143,7 @@ object MainForm: TMainForm
     NonKeyAttri.Foreground = clNone
     StringAttri.Foreground = clSkyBlue
     Left = 672
-    Top = 208
+    Top = 272
   end
   object OpenDialog: TOpenDialog
     Filter = 'Python Files|*.py'
@@ -257,10 +258,17 @@ object MainForm: TMainForm
       ShortCut = 16466
       OnExecute = BuscarSubstituir
     end
+    object BuscarLocalizarProximaCmd: TAction
+      Category = 'Buscar'
+      Caption = 'Localizar &pr'#243'xima'
+      ShortCut = 114
+      OnExecute = BuscarLocalizarProxima
+    end
   end
   object FindDialog: TFindDialog
     OnClose = FindDialogClose
     Options = [frDown, frFindNext]
+    OnFind = FindDialogFind
     Left = 664
     Top = 144
   end
@@ -271,7 +279,11 @@ object MainForm: TMainForm
   end
   object ApplicationEvents: TApplicationEvents
     OnException = ApplicationEventsException
-    Left = 760
+    Left = 680
     Top = 208
+  end
+  object SynEditSearch: TSynEditSearch
+    Left = 760
+    Top = 272
   end
 end
