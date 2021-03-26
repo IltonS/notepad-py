@@ -19,6 +19,14 @@ def main():
              while (op != 'v') and (op != 'V'):
                    system('cls') 
                    op = menu.print_tela_comprimento_base()
+          elif op == '5':
+             while (op != 'v') and (op != 'V'):
+                   system('cls') 
+                   op = menu.print_tela_largura_base()
+          elif op == '7':
+             while (op != 'v') and (op != 'V'):
+                   system('cls') 
+                   op = menu.print_tela_volume()
           else:
              op = menu.print_tela_inicial()
     

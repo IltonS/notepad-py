@@ -3,12 +3,14 @@
       volume = 0
       comprimento = 0
       area_base = 0
+      altura = 0
 
       def __init__(self,
                    largura=None, 
                    volume=None, 
                    comprimento=None,
-                   area_base=None):
+                   area_base=None,
+                   altura=None):
           if largura is not None:
              self.largura = largura
           if volume is not None:
@@ -17,6 +19,8 @@
              self.comprimento = comprimento
           if area_base is not None:
              self.area_base = area_base
+          if altura is not None:
+             self.altura = altura
 
       # Op 1--------------------------------------------------------------------
       def get_formula_altura(self):
@@ -37,4 +41,18 @@
           return 'A / w'
 
       def calcula_comprimento_base(self):
-          return self.area_base / self.largura 
+          return self.area_base / self.largura
+
+      # Op 5--------------------------------------------------------------------
+      def get_formula_largura_base(self):
+          return 'A / l'
+
+      def calcula_largura_base(self):
+          return self.area_base / self.comprimento
+
+      # Op 7--------------------------------------------------------------------
+      def get_formula_volume(self):
+          return '(l * w) * (h / 3)'
+
+      def calcula_volume(self):
+          return (self.comprimento*self.largura)*(self.altura/3) 

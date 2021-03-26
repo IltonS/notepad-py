@@ -110,3 +110,57 @@ class MainMenu:
                     op = input('Digite a opção e pressione <ENTER> : ')
           
           return op
+
+      # Op 5--------------------------------------------------------------------
+      def print_tela_largura_base(self):
+          op = ''
+          print( (self.msg_op_5 + ' - ' + self.app_title).center(self.sc_size) )
+          # Recebe input de calculo
+          try:
+              piramide = Piramide(
+                       area_base = float(input('Entre com o valor da área da base (A): ')),
+                       comprimento = float(input('Entre com o valor do comprimento (l): '))   
+              )
+          
+              print( '\nO Valor da largura da base é: [' + "{:.2f}".format(piramide.calcula_largura_base()) + ']\n')
+          
+              print('+----------------------------------------+')
+              print('+\tFórmula: ' + piramide.get_formula_largura_base() + '                   +')
+              print('+----------------------------------------+')
+              print('\n')
+          except:
+              print('Entrada Inválida de dados\n')
+          finally:
+              print('V=Voltar, N=Novo Cálculo\n')
+              while (op != 'n') and (op != 'N') and (op != 'v') and(op != 'V'):
+                    op = input('Digite a opção e pressione <ENTER> : ')
+          
+          return op
+
+      # Op 7--------------------------------------------------------------------
+      def print_tela_volume(self):
+          op = ''
+          print( (self.msg_op_7 + ' - ' + self.app_title).center(self.sc_size) )
+          # Recebe input de calculo
+          try:
+
+              piramide = Piramide(
+                       comprimento = float(input('Entre com o valor do comprimento (l): ')),
+                       largura = float(input('Entre com o valor da largura (w): ')),
+                       altura = float(input('Entre com o valor da altura (h): '))   
+              )
+          
+              print( '\nO Valor do volume é: [' + "{:.2f}".format(piramide.calcula_volume()) + ']\n')
+          
+              print('+----------------------------------------+')
+              print('+\tFórmula: ' + piramide.get_formula_volume() + '       +')
+              print('+----------------------------------------+')
+              print('\n')
+          except:
+              print('Entrada Inválida de dados\n')
+          finally:
+              print('V=Voltar, N=Novo Cálculo\n')
+              while (op != 'n') and (op != 'N') and (op != 'v') and(op != 'V'):
+                    op = input('Digite a opção e pressione <ENTER> : ')
+          
+          return op
