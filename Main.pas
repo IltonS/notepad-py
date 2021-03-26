@@ -93,6 +93,7 @@ type
     ///   Altera o caption do formulário para exibir um status de modificado ou não.
     /// </summary>
     procedure SetModified(Value: Boolean);
+    function IsNewSearch : Boolean;
     procedure SynEditChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ArquivoNovo(Sender: TObject);
@@ -171,6 +172,15 @@ begin
     Caption := Format('%s - %s', [ExtractFileName(FFileName), Application.Title]);
 end;
 
+function TMainForm.IsNewSearch : Boolean;
+begin
+  if (SynEditSearch.Pattern = FindDialog.FindText) and
+     (SynEditSearch.CaseSensitive = (frMatchCase in FindDialog.Options)) and
+     (SynEditSearch.Whole = (frWholeWord in FindDialog.Options))
+  then Result := False
+  else Result := True;
+end;
+
 procedure TMainForm.SynEditChange(Sender: TObject);
 begin
   SetModified(SynEdit.Modified);
@@ -197,6 +207,7 @@ begin
   EditarCopiarCmd.Enabled := EditarRecortarCmd.Enabled;
   EditarDesfazerCmd.Enabled := SynEdit.CanUndo;
   EditarColarCmd.Enabled := SynEdit.CanPaste;
+  BuscarLocalizarProximaCmd.Enabled := (SynEditSearch.ResultCount > 0);
 end;
 
 procedure TMainForm.AjudaDocumentacaoPyhton(Sender: TObject);
@@ -332,9 +343,11 @@ begin
 end;
 
 procedure TMainForm.FindDialogFind(Sender: TObject);
+var
+  StillHasResults : Boolean;
 begin
 
-  if FindDialog.FindText <> SynEditSearch.Pattern then //É uma nova busca
+  if IsNewSearch then //É uma nova busca
   begin
     SynEditSearch.Pattern := FindDialog.FindText;
     SynEditSearch.CaseSensitive := frMatchCase in FindDialog.Options;
@@ -344,14 +357,16 @@ begin
 
     if SynEditSearch.ResultCount > 0 then //Encontrou resutado
     begin
-      SearchIndex := 0;
+      if frDown in FindDialog.Options then
+        SearchIndex := 0 //Buscar de Maneira Descendente
+      else
+        SearchIndex := SynEditSearch.ResultCount-1; //Buscar de maneira Ascendente
+
       SynEdit.SelStart := SynEditSearch.Results[SearchIndex]-1;
       SynEdit.SelLength := Length(FindDialog.FindText); //Faz a seleção do resultado
-      Inc(SearchIndex); //Incrementa o índice de busca
     end
     else //Não Encontrou resultado
     begin
-      SearchIndex := -1;
       ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]));
     end;
   end
@@ -359,11 +374,20 @@ begin
   begin //Não é uma nova busca
     if SynEditSearch.ResultCount > 0 then //Encontrou resutado
     begin
-      if SearchIndex < SynEditSearch.ResultCount then //Ainda possui resultado para selecionar
+      if frDown in FindDialog.Options then //Busca Descendente
+        StillHasResults := (SearchIndex+1) < SynEditSearch.ResultCount
+      else //Busca Ascendente
+        StillHasResults := (SearchIndex-1) >= 0;
+
+      if StillHasResults then //Ainda possui resultado para selecionar
       begin
+        if frDown in FindDialog.Options then
+          Inc(SearchIndex) //Incrementa o índice de busca
+        else
+          Dec(SearchIndex); //Decrementa o índice de busca
+
         SynEdit.SelStart := SynEditSearch.Results[SearchIndex]-1;
         SynEdit.SelLength := Length(FindDialog.FindText); //Faz a seleção do resultado
-        Inc(SearchIndex); //Incrementa o índice de busca
       end
       else //Não possui mais resultados para mostrar
         ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]));
