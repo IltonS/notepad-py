@@ -15,6 +15,10 @@ def main():
              while (op != 'v') and (op != 'V'):
                    system('cls') 
                    op = menu.print_tela_area_base()
+          elif op == '3':
+             while (op != 'v') and (op != 'V'):
+                   system('cls') 
+                   op = menu.print_tela_area_superficie()
           elif op == '4':
              while (op != 'v') and (op != 'V'):
                    system('cls') 
@@ -23,10 +27,17 @@ def main():
              while (op != 'v') and (op != 'V'):
                    system('cls') 
                    op = menu.print_tela_largura_base()
+          elif op == '6':
+             while (op != 'v') and (op != 'V'):
+                   system('cls') 
+                   op = menu.print_tela_superficie_lateral()
           elif op == '7':
              while (op != 'v') and (op != 'V'):
                    system('cls') 
                    op = menu.print_tela_volume()
+          elif op == '?':
+               system('cls')
+               op = menu.print_tela_sobre()
           else:
              op = menu.print_tela_inicial()
     
