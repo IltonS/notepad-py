@@ -255,7 +255,7 @@ object MainForm: TMainForm
     object BuscarSubstituirCmd: TAction
       Category = 'Buscar'
       Caption = '&Substituir'
-      ShortCut = 16466
+      ShortCut = 16456
       OnExecute = BuscarSubstituir
     end
     object BuscarLocalizarProximaCmd: TAction

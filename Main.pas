@@ -129,6 +129,7 @@ type
     { Private declarations }
     FFileName: string;
     SearchIndex : integer;
+    SearchModified : Boolean;
   public
     { Public declarations }
   end;
@@ -180,23 +181,30 @@ function TMainForm.FindDialogIsNewSearch : Boolean;
 begin
   if (SynEditSearch.Pattern = FindDialog.FindText) and
      (SynEditSearch.CaseSensitive = (frMatchCase in FindDialog.Options)) and
-     (SynEditSearch.Whole = (frWholeWord in FindDialog.Options))
-  then Result := False
-  else Result := True;
+     (SynEditSearch.Whole = (frWholeWord in FindDialog.Options)) and
+     not SearchModified
+  then
+    Result := False
+  else
+    Result := True;
 end;
 
 function TMainForm.ReplaceDialogIsNewSearch : Boolean;
 begin
   if (SynEditSearch.Pattern = ReplaceDialog.FindText) and
      (SynEditSearch.CaseSensitive = (frMatchCase in ReplaceDialog.Options)) and
-     (SynEditSearch.Whole = (frWholeWord in ReplaceDialog.Options))
-  then Result := False
-  else Result := True;
+     (SynEditSearch.Whole = (frWholeWord in ReplaceDialog.Options)) and
+     not SearchModified
+  then
+    Result := False
+  else
+    Result := True;
 end;
 
 procedure TMainForm.SynEditChange(Sender: TObject);
 begin
   SetModified(SynEdit.Modified);
+  SearchModified :=  True;
 end;
 
 procedure TMainForm.PerformFileOpen(const AFileName: string);
@@ -224,6 +232,7 @@ begin
     SynEditSearch.Whole := frWholeWord in ReplaceDialog.Options;
 
     SynEditSearch.FindAll(SynEdit.Lines.Text);
+    SearchModified := False;
   end;
 
   if SynEditSearch.ResultCount > 0 then //Encontrou resutado
@@ -265,8 +274,22 @@ end;
 
 procedure TMainForm.ReplaceDialogReplace(Sender: TObject);
 begin
-  //if frReplaceAll in ReplaceDialog.Options then //Rotina para substituir tudo
-  ;
+  if frReplaceAll in ReplaceDialog.Options then //Rotina para substituir tudo
+  begin
+    ;
+  end
+  else //Rotina para substituir 1 por vez
+  begin
+    // Verifica se não existe um texto selecionado
+    // Ou exite um texto selecionado porém é diferente do texto buscado
+    if (SynEdit.SelText.IsEmpty) or ( (not SynEdit.SelText.IsEmpty) and (SynEdit.SelText<>ReplaceDialog.FindText) ) then
+      ReplaceDialogFind(Sender) //Seleciona um resultado
+    else
+    begin
+      SynEdit.SelText := ReplaceDialog.ReplaceText; //Faz a substituição
+      SearchModified := True;
+    end
+  end;
 end;
 
 procedure TMainForm.ActionListUpdate(Action: TBasicAction;
@@ -422,6 +445,7 @@ begin
     SynEditSearch.Whole := frWholeWord in FindDialog.Options;
 
     SynEditSearch.FindAll(SynEdit.Lines.Text);
+    SearchModified := False;
 
     if SynEditSearch.ResultCount > 0 then //Encontrou resutado
     begin
@@ -476,6 +500,7 @@ procedure TMainForm.FormCreate(Sender: TObject);
 begin
   SetFileName(sUntitled);
   SearchIndex := -1;
+  SearchModified := True;
 end;
 
 end.
