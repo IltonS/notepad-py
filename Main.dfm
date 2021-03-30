@@ -274,6 +274,9 @@ object MainForm: TMainForm
   end
   object ReplaceDialog: TReplaceDialog
     OnClose = ReplaceDialogClose
+    Options = [frDown, frMatchCase, frWholeWord]
+    OnFind = ReplaceDialogFind
+    OnReplace = ReplaceDialogReplace
     Left = 752
     Top = 144
   end
