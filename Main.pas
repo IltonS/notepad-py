@@ -93,8 +93,8 @@ type
     ///   Altera o caption do formulário para exibir um status de modificado ou não.
     /// </summary>
     procedure SetModified(Value: Boolean);
-    function IsNewSearch : Boolean;
-    procedure RecursiveReplace(Call : Integer);
+    function FindDialogIsNewSearch : Boolean;
+    function ReplaceDialogIsNewSearch : Boolean;
     procedure SynEditChange(Sender: TObject);
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ArquivoNovo(Sender: TObject);
@@ -176,11 +176,20 @@ begin
     Caption := Format('%s - %s', [ExtractFileName(FFileName), Application.Title]);
 end;
 
-function TMainForm.IsNewSearch : Boolean;
+function TMainForm.FindDialogIsNewSearch : Boolean;
 begin
   if (SynEditSearch.Pattern = FindDialog.FindText) and
      (SynEditSearch.CaseSensitive = (frMatchCase in FindDialog.Options)) and
      (SynEditSearch.Whole = (frWholeWord in FindDialog.Options))
+  then Result := False
+  else Result := True;
+end;
+
+function TMainForm.ReplaceDialogIsNewSearch : Boolean;
+begin
+  if (SynEditSearch.Pattern = ReplaceDialog.FindText) and
+     (SynEditSearch.CaseSensitive = (frMatchCase in ReplaceDialog.Options)) and
+     (SynEditSearch.Whole = (frWholeWord in ReplaceDialog.Options))
   then Result := False
   else Result := True;
 end;
@@ -205,72 +214,59 @@ begin
 end;
 
 procedure TMainForm.ReplaceDialogFind(Sender: TObject);
+var
+  I : Integer;
 begin
-  FindDialog.FindText := ReplaceDialog.FindText;
-  FindDialog.Options := ReplaceDialog.Options;
-  FindDialog.Options := FindDialog.Options + [frDown];
+  if ReplaceDialogIsNewSearch then // É uma nova busca
+  begin
+    SynEditSearch.Pattern := ReplaceDialog.FindText;
+    SynEditSearch.CaseSensitive := frMatchCase in ReplaceDialog.Options;
+    SynEditSearch.Whole := frWholeWord in ReplaceDialog.Options;
 
-  FindDialogFind(Sender);
-end;
-
-procedure TMainForm.RecursiveReplace(Call : Integer);
-begin
-  SynEditSearch.FindAll(SynEdit.Lines.Text);
+    SynEditSearch.FindAll(SynEdit.Lines.Text);
+  end;
 
   if SynEditSearch.ResultCount > 0 then //Encontrou resutado
   begin
-    SynEdit.SelStart := SynEditSearch.Results[0]-1;
-    SynEdit.SelLength := Length(ReplaceDialog.FindText); //Faz a seleção do resultado
-    SynEdit.SelText := ReplaceDialog.ReplaceText;
-    RecursiveReplace(Call+1);
+    SearchIndex := -1;
+    //Pega Search Index:
+    for I := 0 to (SynEditSearch.ResultCount-1) do
+    begin
+      if (SynEditSearch.Results[I]-1) >= SynEdit.SelStart then //O resultado está depois ou no começo do cursor
+      begin
+        if ((SynEditSearch.Results[I]-1) = SynEdit.SelStart) and (not SynEdit.SelText.IsEmpty) then //O resultado está no começo do cursor e já foi selecionado
+          SearchIndex := I+1
+        else
+          SearchIndex := I;
+
+        if SearchIndex >= SynEditSearch.ResultCount then //ìndice fora de alcance
+          SearchIndex :=-1;
+
+        break
+      end;
+    end;//For
+
+    if SearchIndex >= 0 then //Há resultado para exibir
+    begin
+      SynEdit.SelStart := SynEditSearch.Results[SearchIndex]-1;
+      SynEdit.SelLength := Length(ReplaceDialog.FindText); //Faz a seleção do resultado
+    end
+    else //Não há resultado para exibir
+    begin
+      ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]));
+    end;
   end
-  else
+  else //Não encontrou resultado
   begin
-    if Call = 0 then // Não encontrou resultado e é a primeira chamada da rotina
-      ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]))
-    else
-      ShowMessage(Format(sReplaces, [IntToStr(Call)]));
+    ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]));
   end;
+
 end;
 
 procedure TMainForm.ReplaceDialogReplace(Sender: TObject);
 begin
-  SynEditSearch.Pattern := ReplaceDialog.FindText;
-  SynEditSearch.CaseSensitive := frMatchCase in ReplaceDialog.Options;
-  SynEditSearch.Whole := frWholeWord in ReplaceDialog.Options;
-
-  if frReplaceAll in ReplaceDialog.Options then //Rotina para substituir tudo
-  begin
-    if (Pos(ReplaceDialog.FindText, ReplaceDialog.ReplaceText) > 0) and (not SynEditSearch.Whole) then
-    begin
-      //Neste cenário a rotina RecursiveReplace seria chamada infinitamente.
-      //Para evitar isso é forçada uma busca do tipo WholeWord
-      ReplaceDialog.Options := ReplaceDialog.Options + [frWholeWord];
-      SynEditSearch.Whole := True;
-    end;
-
-    RecursiveReplace(0);
-  end
-  else //Rotina para substituir 1 resultado por vez
-  begin
-    SynEditSearch.FindAll(SynEdit.Lines.Text);
-    ShowMessage(IntToStr(SynEdit.SelStart));
-
-    if SynEditSearch.ResultCount > 0 then //Encontrou resutado
-    begin
-      if SynEdit.SelText = EmptyStr then //Primeiro seleciona o resultado
-      begin
-        SynEdit.SelStart := SynEditSearch.Results[0]-1;
-        SynEdit.SelLength := Length(ReplaceDialog.FindText); //Faz a seleção do resultado
-      end
-      else
-        SynEdit.SelText := ReplaceDialog.ReplaceText; //Faz a substituição do texto
-    end
-    else //Não encontrou resultado
-      ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]))
-
-  end;
-
+  //if frReplaceAll in ReplaceDialog.Options then //Rotina para substituir tudo
+  ;
 end;
 
 procedure TMainForm.ActionListUpdate(Action: TBasicAction;
@@ -280,7 +276,7 @@ begin
   EditarCopiarCmd.Enabled := EditarRecortarCmd.Enabled;
   EditarDesfazerCmd.Enabled := SynEdit.CanUndo;
   EditarColarCmd.Enabled := SynEdit.CanPaste;
-  BuscarLocalizarProximaCmd.Enabled := (SynEditSearch.ResultCount > 0);
+  BuscarLocalizarProximaCmd.Enabled := (SynEditSearch.ResultCount > 0) and (not FindDialog.FindText.IsEmpty);
 end;
 
 procedure TMainForm.AjudaDocumentacaoPyhton(Sender: TObject);
@@ -419,7 +415,7 @@ procedure TMainForm.FindDialogFind(Sender: TObject);
 var
   StillHasResults : Boolean;
 begin
-  if IsNewSearch then //É uma nova busca
+  if FindDialogIsNewSearch then //É uma nova busca
   begin
     SynEditSearch.Pattern := FindDialog.FindText;
     SynEditSearch.CaseSensitive := frMatchCase in FindDialog.Options;
