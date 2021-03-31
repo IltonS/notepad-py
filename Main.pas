@@ -73,6 +73,8 @@ type
     BuscarSubstituirCmd: TAction;
     SynEditSearch: TSynEditSearch;
     BuscarLocalizarProximaCmd: TAction;
+    AjudaNotepadPyCmd: TAction;
+    AjudadoNotepadPyItem: TMenuItem;
     procedure FormCreate(Sender: TObject);
     /// <summary>
     ///   Rotina para associar o nome de um arquivo recebido pela OpenDialog ou
@@ -126,6 +128,7 @@ type
     procedure ReplaceDialogReplace(Sender: TObject);
     procedure ReplaceDialogReplaceAll(Sender: TObject);
     procedure ReplaceDialogFind(Sender: TObject);
+    procedure AjudaNotepadPy(Sender: TObject);
   private
     { Private declarations }
     FFileName: string;
@@ -339,6 +342,11 @@ end;
 procedure TMainForm.AjudaDocumentacaoPyhton(Sender: TObject);
 begin
   ShellExecute(Handle, 'Open', PChar('https://docs.python.org/pt-br/3/'), '', '', SW_NORMAL);
+end;
+
+procedure TMainForm.AjudaNotepadPy(Sender: TObject);
+begin
+  ShellExecute(Handle, 'Open', PChar('https://github.com/IltonS/notepad-py/wiki'), '', '', SW_NORMAL);
 end;
 
 procedure TMainForm.AjudaSobre(Sender: TObject);

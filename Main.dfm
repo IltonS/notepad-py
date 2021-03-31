@@ -123,6 +123,9 @@ object MainForm: TMainForm
     end
     object Ajuda1: TMenuItem
       Caption = 'Aj&uda'
+      object AjudadoNotepadPyItem: TMenuItem
+        Action = AjudaNotepadPyCmd
+      end
       object AjudaDocumentacaoPythonItem: TMenuItem
         Action = AjudaDocumentacaoPythonCmd
       end
@@ -263,6 +266,12 @@ object MainForm: TMainForm
       Caption = 'Localizar &pr'#243'xima'
       ShortCut = 114
       OnExecute = BuscarLocalizarProxima
+    end
+    object AjudaNotepadPyCmd: TAction
+      Category = 'Ajuda'
+      Caption = '&Ajuda do Notepad Py'
+      ShortCut = 16496
+      OnExecute = AjudaNotepadPy
     end
   end
   object FindDialog: TFindDialog
