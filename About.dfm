@@ -4,7 +4,7 @@ object AboutBox: TAboutBox
   BorderStyle = bsDialog
   Caption = 'Sobre'
   ClientHeight = 327
-  ClientWidth = 294
+  ClientWidth = 310
   Color = clBtnFace
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
@@ -18,7 +18,7 @@ object AboutBox: TAboutBox
   PixelsPerInch = 96
   TextHeight = 13
   object Image1: TImage
-    Left = 24
+    Left = 8
     Top = 24
     Width = 48
     Height = 48
@@ -258,7 +258,7 @@ object AboutBox: TAboutBox
     Stretch = True
   end
   object Label1: TLabel
-    Left = 88
+    Left = 62
     Top = 24
     Width = 64
     Height = 13
@@ -270,29 +270,29 @@ object AboutBox: TAboutBox
     Font.Style = [fsBold]
     ParentFont = False
   end
-  object Label2: TLabel
-    Left = 88
+  object LblVersion: TLabel
+    Left = 62
     Top = 43
-    Width = 56
+    Width = 48
     Height = 13
-    Caption = 'Vers'#227'o: 0.1'
+    Caption = 'LblVersion'
   end
   object Label3: TLabel
-    Left = 24
+    Left = 8
     Top = 88
     Width = 39
     Height = 13
     Caption = 'Licen'#231'a:'
   end
   object Label4: TLabel
-    Left = 24
+    Left = 8
     Top = 224
     Width = 182
     Height = 13
     Caption = 'Mem'#243'ria f'#237'sica dispon'#237'vel no Windows:'
   end
   object LblMemory: TLabel
-    Left = 222
+    Left = 246
     Top = 224
     Width = 51
     Height = 13
@@ -300,14 +300,14 @@ object AboutBox: TAboutBox
     Caption = 'LblMemory'
   end
   object Label5: TLabel
-    Left = 24
+    Left = 8
     Top = 256
     Width = 81
     Height = 13
     Caption = 'Mem'#243'ria em uso:'
   end
   object LblInUse: TLabel
-    Left = 232
+    Left = 256
     Top = 256
     Width = 41
     Height = 13
@@ -315,50 +315,45 @@ object AboutBox: TAboutBox
     Caption = 'LblInUse'
   end
   object MemoCopyright: TMemo
-    Left = 24
+    Left = 8
     Top = 107
-    Width = 249
+    Width = 289
     Height = 100
     Lines.Strings = (
       'MIT License'
       ''
       'Copyright (c) 2021 Ilton Sequeira'
       ''
-      'Permission is hereby granted, free of charge, '
-      'to any person obtaining a copy of this '
-      'software and associated documentation files '
-      '(the "Software"), to deal in the Software '
-      'without restriction, including without limitation '
-      'the rights to use, copy, modify, merge, '
-      'publish, distribute, sublicense, and/or sell '
-      'copies of the Software, and to permit '
-      'persons to whom the Software is furnished to '
-      'do so, subject to the following conditions:'
+      'Permission is hereby granted, free of charge, to any '
+      'person obtaining a copy of this software and '
+      'associated documentation files (the "Software"), to '
+      'deal in the Software without restriction, including '
+      'without limitation the rights to use, copy, modify, '
+      'merge, publish, distribute, sublicense, and/or sell '
+      'copies of the Software, and to permit persons to '
+      'whom the Software is furnished to do so, subject to '
+      'the following conditions:'
       ''
-      'The above copyright notice and this '
-      'permission notice shall be included in all copies '
-      'or substantial portions of the Software.'
+      'The above copyright notice and this permission notice '
+      'shall be included in all copies or substantial portions of '
+      'the Software.'
       ''
-      'THE SOFTWARE IS PROVIDED "AS IS", '
-      'WITHOUT WARRANTY OF ANY KIND, '
-      'EXPRESS OR IMPLIED, INCLUDING BUT NOT '
-      'LIMITED TO THE WARRANTIES OF '
-      'MERCHANTABILITY, FITNESS FOR A '
-      'PARTICULAR PURPOSE AND '
-      'NONINFRINGEMENT. IN NO EVENT SHALL '
-      'THE AUTHORS OR COPYRIGHT HOLDERS BE '
-      'LIABLE FOR ANY CLAIM, DAMAGES OR '
-      'OTHER LIABILITY, WHETHER IN AN ACTION '
-      'OF CONTRACT, TORT OR OTHERWISE, '
-      'ARISING FROM, OUT OF OR IN '
-      'CONNECTION WITH THE SOFTWARE OR THE '
-      'USE OR OTHER DEALINGS IN THE '
-      'SOFTWARE.')
+      'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT '
+      'WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, '
+      'INCLUDING BUT NOT LIMITED TO THE WARRANTIES '
+      'OF MERCHANTABILITY, FITNESS FOR A PARTICULAR '
+      'PURPOSE AND NONINFRINGEMENT. IN NO EVENT '
+      'SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE '
+      'LIABLE FOR ANY CLAIM, DAMAGES OR OTHER '
+      'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, '
+      'TORT OR OTHERWISE, ARISING FROM, OUT OF OR '
+      'IN CONNECTION WITH THE SOFTWARE OR THE USE '
+      'OR OTHER DEALINGS IN THE SOFTWARE.')
     ScrollBars = ssVertical
     TabOrder = 0
   end
   object BtnFechar: TButton
-    Left = 198
+    Left = 222
     Top = 283
     Width = 75
     Height = 25
