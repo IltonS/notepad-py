@@ -141,7 +141,7 @@ object MainForm: TMainForm
     CommentAttri.Foreground = clGreen
     KeyAttri.Foreground = clBlue
     NonKeyAttri.Foreground = clNone
-    StringAttri.Foreground = clSkyBlue
+    StringAttri.Foreground = clGray
     Left = 672
     Top = 272
   end
