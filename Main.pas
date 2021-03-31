@@ -124,6 +124,7 @@ type
     procedure FindDialogFind(Sender: TObject);
     procedure BuscarLocalizarProxima(Sender: TObject);
     procedure ReplaceDialogReplace(Sender: TObject);
+    procedure ReplaceDialogReplaceAll(Sender: TObject);
     procedure ReplaceDialogFind(Sender: TObject);
   private
     { Private declarations }
@@ -272,11 +273,44 @@ begin
 
 end;
 
+procedure TMainForm.ReplaceDialogReplaceAll(Sender: TObject);
+var
+  Result, ResultCount: Integer;
+begin
+  SynEditSearch.Pattern := ReplaceDialog.FindText;
+  SynEditSearch.CaseSensitive := frMatchCase in ReplaceDialog.Options;
+  SynEditSearch.Whole := frWholeWord in ReplaceDialog.Options;
+
+  //Se a string antiga está contida na nova string a opção Whole será ativada
+  //obrigatoriamente para evitar uma substituição recursiva
+  if pos(ReplaceDialog.FindText, ReplaceDialog.ReplaceText) > 0 then
+    SynEditSearch.Whole := True;
+
+  Result := SynEditSearch.FindFirst(SynEdit.Lines.Text);
+  ResultCount := 0;
+
+  while Result > 0 do
+  begin
+    SynEdit.SelStart := Result-1;
+    SynEdit.SelLength := Length(ReplaceDialog.FindText); //Faz a seleção do resultado
+    SynEdit.SelText := ReplaceDialog.ReplaceText;
+    SearchModified := True;
+    Inc(ResultCount);
+
+    Result := SynEditSearch.FindFirst(SynEdit.Lines.Text);
+  end;
+
+  if ResultCount = 0 then
+    ShowMessage(Format(sNotFound, [SynEditSearch.Pattern]))
+  else
+    ShowMessage(Format(sReplaces, [ IntToStr(ResultCount) ]));
+end;
+
 procedure TMainForm.ReplaceDialogReplace(Sender: TObject);
 begin
   if frReplaceAll in ReplaceDialog.Options then //Rotina para substituir tudo
   begin
-    ;
+    ReplaceDialogReplaceAll(Sender);
   end
   else //Rotina para substituir 1 por vez
   begin
