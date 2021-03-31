@@ -455,7 +455,7 @@ end;
 procedure TMainForm.EditarRodar(Sender: TObject);
 begin
   CheckFileSave;
-  ShellExecute(0, nil,'cmd', PChar('/C py ' + FFileName + ' & pause'), '', SW_NORMAL);
+  ShellExecute(0, nil,'cmd', PChar('/C py "' + FFileName + '" & pause'), '', SW_NORMAL);
 end;
 
 procedure TMainForm.EditarSelecionarTudo(Sender: TObject);
