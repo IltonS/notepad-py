@@ -64,9 +64,18 @@ def print_tela_square_number():
 def print_tela_square_pyramidal_number():
     op = ''
     print( (msg_op_2 + ' - ' + app_title).center(sc_size) )
-    # Entrada e processamento de dados      
-    print('V=Voltar, N=Novo Cálculo\n')
-    while (op != 'n') and (op != 'N') and (op != 'v') and(op != 'V'):
+    # Entrada e processamento de dados
+    try:
+       N = int(input('Entre com um número N: '))
+       if isPyramidalNumber(N):
+          print('\n['+str(N)+'] É um número piramidal perfeito\n')
+       else:
+          print('\n['+str(N)+'] Não é um número piramidal perfeito\n') 
+    except:
+       print('Entrada Inválida de dados.') 
+    finally:          
+       print('V=Voltar, N=Novo Cálculo\n')
+       while (op != 'n') and (op != 'N') and (op != 'v') and(op != 'V'):
           op = input('Digite a opção e pressione <ENTER> : ')
           
     return op
