@@ -4,7 +4,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, SynEdit,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, Vcl.StdCtrls, Vcl.Themes, SynEdit,
   SynEditHighlighter, SynEditCodeFolding, SynHighlighterPython, ShellAPI, About,
   System.Actions, Vcl.ActnList, Vcl.ComCtrls, RichEdit, SynEditMiscClasses,
   Vcl.AppEvnts, SynEditSearch;
@@ -75,6 +75,9 @@ type
     BuscarLocalizarProximaCmd: TAction;
     AjudaNotepadPyCmd: TAction;
     AjudadoNotepadPyItem: TMenuItem;
+    ArquivoTemaEscuroCmd: TAction;
+    Preferncias1: TMenuItem;
+    ArquivoTemaEscuroItem: TMenuItem;
     procedure FormCreate(Sender: TObject);
     /// <summary>
     ///   Rotina para associar o nome de um arquivo recebido pela OpenDialog ou
@@ -98,6 +101,8 @@ type
     function FindDialogIsNewSearch : Boolean;
     function ReplaceDialogIsNewSearch : Boolean;
     procedure SynEditChange(Sender: TObject);
+    procedure SetDarkTheme;
+    procedure SetLightTheme;
     procedure FormClose(Sender: TObject; var Action: TCloseAction);
     procedure ArquivoNovo(Sender: TObject);
     procedure ArquivoAbrir(Sender: TObject);
@@ -129,6 +134,7 @@ type
     procedure ReplaceDialogReplaceAll(Sender: TObject);
     procedure ReplaceDialogFind(Sender: TObject);
     procedure AjudaNotepadPy(Sender: TObject);
+    procedure ArquivoTemaEscuro(Sender: TObject);
   private
     { Private declarations }
     FFileName: string;
@@ -419,6 +425,16 @@ begin
   end;
 end;
 
+procedure TMainForm.ArquivoTemaEscuro(Sender: TObject);
+begin
+  ArquivoTemaEscuroCmd.Checked := not ArquivoTemaEscuroCmd.Checked;
+
+  if ArquivoTemaEscuroCmd.Checked then
+    SetDarkTheme
+  else
+    SetLightTheme;
+end;
+
 procedure TMainForm.BuscarLocalizarProxima(Sender: TObject);
 begin
   FindDialogFind(Sender);
@@ -543,6 +559,35 @@ begin
   SetFileName(sUntitled);
   SearchIndex := -1;
   SearchModified := True;
+  SetLightTheme;
+end;
+
+procedure TMainForm.SetDarkTheme;
+begin
+  TStyleManager.TrySetStyle('Windows10 Dark');
+  SynEdit.Color := clBlack; //clWindow
+  SynEdit.Font.Color := clWebLightgrey ; //clWindowText
+  PythonHighlight.KeyAttri.Foreground := clWebCrimson; //clBlue
+  PythonHighlight.NonKeyAttri.Foreground := clWebCrimson;
+  PythonHighlight.CommentAttri.Foreground := clWebYellowGreen ; //clGreen
+  PythonHighlight.StringAttri.Foreground := clWebPaleVioletRed; //clGray
+  PythonHighlight.FloatAttri.Foreground := clWebDarkOrange ; //clBlue
+  PythonHighlight.NumberAttri.Foreground :=  clWebDarkOrange ; //clBlue
+  PythonHighlight.SystemAttri.Foreground := clWhite;
+end;
+
+procedure TMainForm.SetLightTheme;
+begin
+  TStyleManager.TrySetStyle('Windows');
+  SynEdit.Color := clWindow;
+  SynEdit.Font.Color := clWindowText;
+  PythonHighlight.KeyAttri.Foreground := clWebMidnightBlue; //clBlue
+  PythonHighlight.NonKeyAttri.Foreground := clWebMidnightBlue;
+  PythonHighlight.CommentAttri.Foreground := clWebGreen; //clGreen
+  PythonHighlight.StringAttri.Foreground := clWebSteelBlue; //clGray
+  PythonHighlight.FloatAttri.Foreground := clWebBlueViolet; //clBlue
+  PythonHighlight.NumberAttri.Foreground :=  clWebBlueViolet; //clBlue
+  PythonHighlight.SystemAttri.Foreground := clBlack;
 end;
 
 end.
