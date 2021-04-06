@@ -6,6 +6,7 @@
    status: str
    machine_move: str
    valid_move: bool
+   player1_turn: bool
    board = {
       "1" : "",
       "2" : "",
@@ -26,6 +27,7 @@
       self.status = 'unfinished'
       self.machine_move = ''
       self.valid_move = False
+      self.player1_turn = True
       self.board = {
          "1" : "1",
          "2" : "2",

@@ -103,14 +103,57 @@ class MainMenu:
       # Op 2--------------------------------------------------------------------
       def print_tela_2players(self):
           op = ''
-          print( (self.msg_op_2 + ' - ' + self.app_title).center(self.sc_size) )
-          # Do something
           try:
+              game = TicTac()
+              
+              print( (self.msg_op_2 + ' - ' + self.app_title).center(self.sc_size) )
+              print(self.LN)              
+              
+              # Escolhe x ou o
+              while (game.player1_choice != 'x') and (game.player1_choice != 'o'):
+                 game.player1_choice = input('Jogador 1, como deseja jogar? [x] ou [o]: ')
+              game.player2_choice = 'x' if game.player1_choice == 'o' else 'o'
+              
+              #Inicia o jogo
+              while game.status == 'unfinished':
+                 # Desennha o jogo
+                 system('cls')
+                 print( (self.msg_op_2 + ' - ' + self.app_title).center(self.sc_size) )
+                 print(self.LN)    
+                 game.draw_board()
+
+                 if game.player1_turn:
+                    # Jogador 1 faz uma jogada
+                    game.valid_move = False
+                    while not game.valid_move:
+                       game.player_move(1, input('Jogador 1, digite o número da sua jogada: '))
+                    game.player1_turn = False
+                    game.update_status()
+                 else:
+                    # Jogador 2 faz uma jogada
+                    game.valid_move = False
+                    while not game.valid_move:
+                       game.player_move(2, input('Jogador 2, digite o número da sua jogada: '))
+                    game.player1_turn = True
+                    game.update_status()
+              
+              # Exibe mensagem de fim de jogo
+              system('cls')
+              print( (self.msg_op_2 + ' - ' + self.app_title).center(self.sc_size) )
+              print(self.LN)
+              game.draw_board()
+              if game.status == 'P1 Win':
+                 print('Jogador 1 ganhou!')
+              elif game.status == 'P2 Win':
+                 print('Jogador 2 ganhou!')
+              else:
+                 print('Velha!')
               print(self.LN)
           except:
-              print('Entrada Inválida de dados\n')
+              print('Ocorreu um erro\n')
           finally:
-              print('V=Voltar, N=Novo Cálculo\n')
+              print('V=Voltar, N=Novo Jogo\n')
               while (op != 'n') and (op != 'N') and (op != 'v') and(op != 'V'):
                     op = input('Digite a opção e pressione <ENTER> : ')
+          
           return op
