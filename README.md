@@ -1,6 +1,8 @@
-# Notepad Py
+![Box Image](/Resources/box-image.jpg)
 
-### Resumo
+[Download da versão mais recente](https://github.com/IltonS/notepad-py/releases/latest)
+
+# Notepad Py
 O Notepad Py é um editor de código fonte para a linguagem Python. Sua interface minimalista permite realizar operações básicas de edição de texto de maneira mais rápida e fácil, o que o torna adequado para edição de pequenos scripts e/ou para usuários que estejam aprendendo a linguagem.
 
 ### Introdução
@@ -15,7 +17,7 @@ Este projeto também possui um [Wiki](https://github.com/IltonS/notepad-py/wiki)
 ### Scripts incluídos
 
 #### Calculadora de Pirâmides
-Script que realiza alguns cálculos geométricos para uma pirâmide de base retangular. Estre script utiliza o paradigma de programação orientado a objetos. Os cálculos sâo:
+Script que realiza alguns cálculos geométricos para uma pirâmide de base retangular. Estre script utiliza o paradigma de programação orientado a objetos. Os cálculos são:
 * Altura
 * Área da base
 * Área da superfície
