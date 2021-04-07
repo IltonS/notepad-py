@@ -3,7 +3,9 @@ program NotepadPy;
 uses
   Vcl.Forms,
   Main in 'Main.pas' {MainForm},
-  About in 'About.pas' {AboutBox};
+  About in 'About.pas' {AboutBox},
+  Vcl.Themes,
+  Vcl.Styles;
 
 {$R *.res}
 

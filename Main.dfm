@@ -35,6 +35,7 @@ object MainForm: TMainForm
     CodeFolding.IndentGuidesColor = clGray
     CodeFolding.IndentGuides = True
     UseCodeFolding = False
+    BorderStyle = bsNone
     Gutter.Font.Charset = DEFAULT_CHARSET
     Gutter.Font.Color = clWindowText
     Gutter.Font.Height = -11
@@ -68,6 +69,12 @@ object MainForm: TMainForm
       end
       object ArquivoSalvarComoItem: TMenuItem
         Action = ArquivoSalvarComoCmd
+      end
+      object Preferncias1: TMenuItem
+        Caption = '&Prefer'#234'ncias'
+        object ArquivoTemaEscuroItem: TMenuItem
+          Action = ArquivoTemaEscuroCmd
+        end
       end
       object N1: TMenuItem
         Caption = '-'
@@ -272,6 +279,12 @@ object MainForm: TMainForm
       Caption = '&Ajuda do Notepad Py'
       ShortCut = 16496
       OnExecute = AjudaNotepadPy
+    end
+    object ArquivoTemaEscuroCmd: TAction
+      Category = 'Arquivo'
+      Caption = 'Tema &Escuro'
+      ShortCut = 16452
+      OnExecute = ArquivoTemaEscuro
     end
   end
   object FindDialog: TFindDialog
