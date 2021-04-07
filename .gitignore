@@ -4,3 +4,4 @@
 *.dll
 *.dcu
 *.pyc
+/Win32

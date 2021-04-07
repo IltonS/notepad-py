@@ -2,7 +2,7 @@
 
 [Download da versão mais recente](https://github.com/IltonS/notepad-py/releases/latest)
 
-# Notepad Py
+# ![Icon Image](/Resources/notepad-grid-icon_48.png) Notepad Py
 O Notepad Py é um editor de código fonte para a linguagem Python. Sua interface minimalista permite realizar operações básicas de edição de texto de maneira mais rápida e fácil, o que o torna adequado para edição de pequenos scripts e/ou para usuários que estejam aprendendo a linguagem.
 
 ### Introdução
