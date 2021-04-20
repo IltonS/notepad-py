@@ -1,11 +1,11 @@
 ![Box Image](/Resources/box-image.jpg)
 
-[Download latest version](https://github.com/IltonS/notepad-py/releases/latest)
+[Download da versão mais recente](https://github.com/IltonS/notepad-py/releases/latest)
 
-[Ler este arquivo em português](/README.pt-br.md)
+[Read this file in english](/README.md)
 
 # ![Icon Image](/Resources/notepad-grid-icon_48.png) Notepad Py
-Notepad Py is a source code editor for the Python language. Its minimalist interface allows you to perform basic text editing operations faster and easier, making it suitable for editing small scripts and/or for users learning the language.
+O Notepad Py é um editor de código fonte para a linguagem Python. Sua interface minimalista permite realizar operações básicas de edição de texto de maneira mais rápida e fácil, o que o torna adequado para edição de pequenos scripts e/ou para usuários que estejam aprendendo a linguagem.
 
 ### Introdução
 Este projeto foi feito como uma complementação dos meus estudos nas linguagens Delphi e Python. A criação de um editor de código fonte em delphi permite exercitar conceitos do uso da VCL, o uso de lógica de programação no desenvolvimento de funcionalidades como as de Localizar e Substituir, e explorar e entender componentes de terceiros com o uso do SynEdit. Como esse projeto também envolve meu primeiro contato com a linguagem Pyhton, alguns scripts de exemplo (editados no Notepad Py) foram incluídos na release. São 2 scripts simples que implementam alguns cálculos geométricos, um gerador de números primos, que na verdade é uma tradução de um exemplo clássico da linguagem Pascal, e uma implementação do Jogo da velha.
