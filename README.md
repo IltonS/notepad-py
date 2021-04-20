@@ -7,32 +7,32 @@
 # ![Icon Image](/Resources/notepad-grid-icon_48.png) Notepad Py
 Notepad Py is a source code editor for the Python language. Its minimalist interface allows you to perform basic text editing operations faster and easier, making it suitable for editing small scripts and/or for users learning the language.
 
-### Introdução
-Este projeto foi feito como uma complementação dos meus estudos nas linguagens Delphi e Python. A criação de um editor de código fonte em delphi permite exercitar conceitos do uso da VCL, o uso de lógica de programação no desenvolvimento de funcionalidades como as de Localizar e Substituir, e explorar e entender componentes de terceiros com o uso do SynEdit. Como esse projeto também envolve meu primeiro contato com a linguagem Pyhton, alguns scripts de exemplo (editados no Notepad Py) foram incluídos na release. São 2 scripts simples que implementam alguns cálculos geométricos, um gerador de números primos, que na verdade é uma tradução de um exemplo clássico da linguagem Pascal, e uma implementação do Jogo da velha.
+### Introduction
+This project was made as a complement of my studies in Delphi and Python languages. Creating a delphi source code editor allowed me to exercise concepts of using VCL, using programming logic in developing functionalities such as Find and Replace, and explore and understand third-party components using SynEdit. Because this project also involves my first contact with the Pyhton language, some sample scripts (edited in Notepad Py) were included in the release. There are 2 simple scripts that implement some geometric calculations, a prime numbers generator, which is actually a translation of a classic example of the Pascal language, and an implementation of the Tic-tac-toe game.
 
-### Pré-requisitos
-O Notepad Py não requer instalação, basta abrir o arquivo executável. Porém, para que o comando _Rodar_ funcione corretamente, é necessário ter o interpretador do Python instalado e configurado na máquina, ou seja, se o comando `py` puder ser executado no terminal do Windows, o recurso _Rodar_ no Notepad Py também irá funcionar corretamente.
+### Prerequisites
+Notepad Py does not require installation, just open the executable file. However, for the _Run_ commands to work correctly, you must have the Python interpreter installed and configured on the machine, that is, if the 'py' command can run on the Windows terminal, the _Run_ features on Notepad Py will also work correctly.
 
-### Ajuda do programa
-Este projeto também possui um [Wiki](https://github.com/IltonS/notepad-py/wiki) com ajuda para as principais funcionalidades do programa. É possível acessar esse wiki no Notepad Py através do atalho `Ctrl+F1`. Também é possível acessar a documentação oficial do Python através do atalho `F1`.
+### Program Help
+This project also has a [Wiki](https://github.com/IltonS/notepad-py/wiki) with help for the main features of the program. You can access this wiki in Notepad Py via the 'Ctrl+F1' shortcut. You can also access the official Python documentation via the 'F1' shortcut.
 
-### Scripts incluídos
+### Included scripts
 
-#### Calculadora de Pirâmides
-Script que realiza alguns cálculos geométricos para uma pirâmide de base retangular. Estre script utiliza o paradigma de programação orientado a objetos. Os cálculos são:
-* Altura
-* Área da base
-* Área da superfície
-* Comprimento da base
-* Largura da base
-* Superfície lateral
+#### Pyramid Calculator
+Script that performs some geometric calculations for a rectangular base pyramid. This script uses the object-oriented programming paradigm. The calculations are:
+* Height
+* Base area
+* Surface area
+* Base length
+* Base Width
+* Lateral surface
 * Volume
 
-#### Número piramidal quadrado
-Este script determina se um número N digitado pelo usuário é um número piramidal quadrado. Ou seja, se com este número N é possível formar uma pirâmide quadrangular. Este script utiliza um paradigma de programação procedural.
+#### Square pyramidal number
+This script determines whether an N number entered by the user is a square pyramidal number. That is, if with this n number it is possible to form a quadrangular pyramid. This script uses a procedural programming paradigm.
 
-#### Gerador de números primos
-Script que gera todos os números primos entre 0 e 100
+#### Prime numbers generator
+Script that generates all prime numbers between 0 and 100
 
-#### Jogo da velha
-Implementação do jogo clássico. Possui modos para 1 e 2 jogadores. No modo para 1 jogador, o script não implementa nenhum tipo de inteligência e as jogadas da máquina são feitas de maneira aleatória. No modo para 2 jogadores, a leitura da jogada é feita em turnos, permitindo que duas pessoas alternem a entrada de dados.
+#### Tic-tac-toe
+Implementation of the classic game. It features 1 and 2 players modes. In 1-player mode, the script does not implement any intelligence and machine moves are made randomly. In 2-players mode, the moves are done in turns, allowing two people to switch data entry.
