@@ -19,7 +19,7 @@ Este projeto também possui um [Wiki](https://github.com/IltonS/notepad-py/wiki)
 ### Scripts incluídos
 
 #### Calculadora de Pirâmides
-Script que realiza alguns cálculos geométricos para uma pirâmide de base retangular. Estre script utiliza o paradigma de programação orientado a objetos. Os cálculos são:
+Script que realiza alguns cálculos geométricos para uma pirâmide de base retangular. Este script utiliza o paradigma de programação orientado a objetos. Os cálculos são:
 * Altura
 * Área da base
 * Área da superfície
