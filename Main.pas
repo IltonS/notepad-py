@@ -32,8 +32,6 @@ type
     N5: TMenuItem;
     EditarSelecionarTudoItem: TMenuItem;
     EditarQuebraLinhaItem: TMenuItem;
-    N6: TMenuItem;
-    EditarRodarItem: TMenuItem;
     Busca1: TMenuItem;
     BuscarLocalizarItem: TMenuItem;
     BuscarLocalizarProximaItem: TMenuItem;
@@ -61,7 +59,6 @@ type
     EditarColarCmd: TAction;
     EditarSelecionarTudoCmd: TAction;
     EditarQuebraLinhaCmd: TAction;
-    EditarRodarCmd: TAction;
     AjudaDocumentacaoPythonCmd: TAction;
     AjudaSobreCmd: TAction;
     ArquivoNovaJanelaCmd: TAction;
@@ -78,6 +75,13 @@ type
     ArquivoTemaEscuroCmd: TAction;
     Preferncias1: TMenuItem;
     ArquivoTemaEscuroItem: TMenuItem;
+    ExecutarRodarCmd: TAction;
+    ExecutarRodarIdleCmd: TAction;
+    ExecutarRodarIdleDebugCmd: TAction;
+    Executar1: TMenuItem;
+    ExecutarRodarItem: TMenuItem;
+    ExecutarRodarIdleItem: TMenuItem;
+    ExecutarRodarIdleDebugItem: TMenuItem;
     procedure FormCreate(Sender: TObject);
     /// <summary>
     ///   Rotina para associar o nome de um arquivo recebido pela OpenDialog ou
@@ -135,6 +139,9 @@ type
     procedure ReplaceDialogFind(Sender: TObject);
     procedure AjudaNotepadPy(Sender: TObject);
     procedure ArquivoTemaEscuro(Sender: TObject);
+    procedure ExecutarRodar(Sender: TObject);
+    procedure ExecutarRodarIdle(Sender: TObject);
+    procedure ExecutarRodarIdleDebug(Sender: TObject);
   private
     { Private declarations }
     FFileName: string;
@@ -485,6 +492,24 @@ end;
 procedure TMainForm.EditarSelecionarTudo(Sender: TObject);
 begin
   SynEdit.SelectAll
+end;
+
+procedure TMainForm.ExecutarRodar(Sender: TObject);
+begin
+  CheckFileSave;
+  ShellExecute(0, nil,'cmd', PChar('/C py "' + FFileName + '" & pause'), '', SW_NORMAL);
+end;
+
+procedure TMainForm.ExecutarRodarIdle(Sender: TObject);
+begin
+  CheckFileSave;
+  ShellExecute(0, nil,'cmd', PChar('/C py -m idlelib -r "' + FFileName + '"'), '', SW_NORMAL);
+end;
+
+procedure TMainForm.ExecutarRodarIdleDebug(Sender: TObject);
+begin
+  CheckFileSave;
+  ShellExecute(0, nil,'cmd', PChar('/C py -m idlelib -d -r "' + FFileName + '"'), '', SW_NORMAL);
 end;
 
 procedure TMainForm.FindDialogClose(Sender: TObject);

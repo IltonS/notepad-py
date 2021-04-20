@@ -109,11 +109,17 @@ object MainForm: TMainForm
       object EditarQuebraLinhaItem: TMenuItem
         Action = EditarQuebraLinhaCmd
       end
-      object N6: TMenuItem
-        Caption = '-'
+    end
+    object Executar1: TMenuItem
+      Caption = 'E&xecutar'
+      object ExecutarRodarItem: TMenuItem
+        Action = ExecutarRodarCmd
       end
-      object EditarRodarItem: TMenuItem
-        Action = EditarRodarCmd
+      object ExecutarRodarIdleItem: TMenuItem
+        Action = ExecutarRodarIdleCmd
+      end
+      object ExecutarRodarIdleDebugItem: TMenuItem
+        Action = ExecutarRodarIdleDebugCmd
       end
     end
     object Busca1: TMenuItem
@@ -233,12 +239,6 @@ object MainForm: TMainForm
       Caption = '&Quebra autom'#225'tica de linha'
       OnExecute = EditarQuebraLinha
     end
-    object EditarRodarCmd: TAction
-      Category = 'Editar'
-      Caption = 'R&odar'
-      ShortCut = 116
-      OnExecute = EditarRodar
-    end
     object AjudaDocumentacaoPythonCmd: TAction
       Category = 'Ajuda'
       Caption = '&Documenta'#231#227'o do Python'
@@ -285,6 +285,24 @@ object MainForm: TMainForm
       Caption = 'Tema &Escuro'
       ShortCut = 16452
       OnExecute = ArquivoTemaEscuro
+    end
+    object ExecutarRodarCmd: TAction
+      Category = 'Executar'
+      Caption = '&Rodar'
+      ShortCut = 116
+      OnExecute = ExecutarRodar
+    end
+    object ExecutarRodarIdleCmd: TAction
+      Category = 'Executar'
+      Caption = 'Rodar no &IDLE'
+      ShortCut = 16500
+      OnExecute = ExecutarRodarIdle
+    end
+    object ExecutarRodarIdleDebugCmd: TAction
+      Category = 'Executar'
+      Caption = 'Rodar no IDLE (&Debug Mode)'
+      ShortCut = 24692
+      OnExecute = ExecutarRodarIdleDebug
     end
   end
   object FindDialog: TFindDialog
