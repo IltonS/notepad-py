@@ -1,4 +1,4 @@
-![Cover Image](/Resources/notepadpy-cover.png)
+![Cover Image](/Resources/notepad-py-cover.png)
 
 [Download da versão mais recente](https://github.com/IltonS/notepad-py/releases/latest)
 
