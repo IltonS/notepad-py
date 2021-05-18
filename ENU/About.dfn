@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xliff PUBLIC "-//XLIFF//DTD XLIFF//EN" "http://www.oasis-open.org/committees/xliff/documents/xliff.dtd">
+<xliff version="1.0">
+  <file original="C:\Users\Ilton\Documents\Embarcadero\Studio\Projects\notepad-py\About.dfm" source-language="pt-BR" target-language="en-US" datatype="delphiform" tool="ETM v10.0" ts="C:\Users\Ilton\Documents\Embarcadero\Studio\Projects\notepad-py\About.dfm">
+    <header>
+      <prop-group name="ITEHeaderProp">
+        <prop prop-type="Version">9.0</prop>
+        <prop prop-type="SelfDateTime">44334.3878009259</prop>
+        <prop prop-type="OrigDateTime">44329.7172222222</prop>
+        <prop prop-type="XlatDateTime">44329.7172222222</prop>
+        <prop prop-type="Translated">0</prop>
+        <prop prop-type="UnTranslated">109</prop>
+      </prop-group>
+    </header>
+    <body>
+      <trans-unit id="O:AboutBox.Left" resname="O:AboutBox.Left">
+        <source>537</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">0</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Top" resname="O:AboutBox.Top">
+        <source>219</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">1</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.BorderStyle" resname="O:AboutBox.BorderStyle">
+        <source>bsDialog</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">2</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Caption" resname="O:AboutBox.Caption">
+        <source>'Sobre'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">3</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.ClientHeight" resname="O:AboutBox.ClientHeight">
+        <source>327</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">4</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.ClientWidth" resname="O:AboutBox.ClientWidth">
+        <source>310</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">5</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Color" resname="O:AboutBox.Color">
+        <source>clBtnFace</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">6</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Font.Charset" resname="O:AboutBox.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">7</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Font.Color" resname="O:AboutBox.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">8</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Font.Height" resname="O:AboutBox.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">9</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Font.Name" resname="O:AboutBox.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">10</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Font.Style" resname="O:AboutBox.Font.Style">
+        <source>[]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">11</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.OldCreateOrder" resname="O:AboutBox.OldCreateOrder">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">12</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.Position" resname="O:AboutBox.Position">
+        <source>poDesigned</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">13</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.OnActivate" resname="O:AboutBox.OnActivate">
+        <source>FormActivate</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">14</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.OnCreate" resname="O:AboutBox.OnCreate">
+        <source>FormCreate</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">15</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.PixelsPerInch" resname="O:AboutBox.PixelsPerInch">
+        <source>96</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">16</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.TextHeight" resname="O:AboutBox.TextHeight">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">17</prop><prop prop-type="Type">TAboutBox</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Image1.Left" resname="O:AboutBox.O:Image1.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">18</prop><prop prop-type="Type">TImage</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Image1.Top" resname="O:AboutBox.O:Image1.Top">
+        <source>24</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">19</prop><prop prop-type="Type">TImage</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Image1.Width" resname="O:AboutBox.O:Image1.Width">
+        <source>48</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">20</prop><prop prop-type="Type">TImage</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Image1.Height" resname="O:AboutBox.O:Image1.Height">
+        <source>48</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">21</prop><prop prop-type="Type">TImage</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Image1.Picture.Data" resname="O:AboutBox.O:Image1.Picture.Data">
+        <source>0954506E67496D61676589504E470D0A1A0A0000000D49484452000000300000003008060000012005C911000000097048597300000B1300000B1301009A9C180000001974455874536F6674776172650041646F626520496D616765526561647971C9653C000006A44944415478DAD5594D682445147E0339045CC944840405B7710326B0B82D06DC43606B6E39E6B08282600B8B891031B9E5B03035907B263785407A4E7A5CD98B0B42F78087E4B413F018D85ED96802926D620E4190F6BDEAAAEEEA9EFE9D24B27ED099EAEEAA7AEFD57BF5DE579D06E4A011B57810A8E6FD5F3F962FE82107088206343A01BCFCC6D75E48ACFEF9352C2C2CC453B9AE1BBDBC73E74EFC62301804EAE18B172F34E1995A6932007CBC9F8C5F04ED5023CBFB026CDBC6174BBB019856D4FFDBE9EF606565259211A056A271EFDE3D68341AF10BD42A56557BA1E000E30C7EFBC507DFF3E1F4D08337DF6BC2E4BB4D78ED0F036D6AE803382AD70E1B78D9F847A9E4B6C0E51C18639104073BB3F025EAE134C0F518B47A0EAE145AB5C4C0300C6D00E701E480CBDF66B3096B6B6B433644D6EBA095F07D1F262727875DC18BA471DEC8F55DB14F153EFCF225BCFE5633B3A7CBC9211FE803300A73B441FF774D938CD654B29C000C162F0DD726677D8AC3C48078761EC6BAD0B743CF3A3880A506E871291CD7C1CEE4741FC3711D2CCB4A0CD8C5015691EEE434F2831A80EAF0CCFE06063ACD4E909E4EFA41DF793AC8D3DBDBDBD506506742E600B585156EDCB801B76EDDCA1F00225C783B4B2DDAB89EE795C6D22E84DB681DAF2DBC5A407B27BEA770319582B2DD926D5FF8B260F2FCD0CA4507CC478F842768AFD1FC5902382C6EB5E1EE5ACA66F93B8DD762D6E47D1CC9C8312A887204180CB39F13DF7B49018CB9E0382D19C671A7A68BA905271D1B1B83C3C3C34C01B47E4F879685CBF50A92BAC4027AD8C7029569289DF67ABD21010CD329A6D4CC8028009A676306B543F354EACA123082437B30F3F30E743736443C53D6BD79F366AE005A9EADD40CCC34CD4211DD6E376AAB1D9627200B01CF490A45A02441782504B0070F1E38ABABABB504104DA07DF0F0E1C352010A4E853E69502A1134A0765DAB8BC22592DADB10F30695D0D43395FC5A5A5FDC7954898A0558488F7661600F70039A58645DC16B8EF63D78FB2303FEFADD877FFE6E42D300C175DE59688A42CC2CEC4B32A02B97295700C77CD48EEA6E55485E44B5002FB2CACD16904E7895E0C1F4DE57F003EEEC320101AC3CC5B4ACED623BB17839E860CDF7442D2817909151894A88A0E6D99313155019B548404C2563CB131650DA8EE8A5005646642B064E4EB98976729E80EC94CD876B4152405CC928A362A1CF15B08602B66A0B9091432813905D13DC90752B231B1D3DBAFA600EBAB0B6B41409C8F3C108052774AE8A1C02D5847EBF3F24C0C2B8DFAD1FF7612D564547A569B2222D6038724A710CF0D3A7D0FD640954D553152DCB0214C06B0A100B8D0658438FE93494E583F4FA183333330615F33C5021C23E09EDF32CC802C7B56D97157D8591046064B455D8D541DE128D6C81E243AF9E053B3B3BEDF9F9F9C2C98887EAB8B8B880FDFDFD4A020C5C9E67B6E49C554102F6F6F6046D2913A03012F9C2312E8444A094B66471D62A68A9C665789185D7E7B24D54659052A625EF5528AECBB61A3390CF9C823134AF5DA4C4A806506A7741D4E284020D79CFE47D47FEAA22E64A25F5D2D092EFF5312E0C67AF16687C6E5403B810A62A07C5A15EA6384EC7B08B2ABA2EEAE2B910F5A7368DA17B45E9E89EDAFA1897CB79B1DA7BB6C8DB12CA6B954EE16938F0C68C01EF7F6680895140A4F45A4186B860E2798C4A26ED5CB97B13DEA86340F801AA76DDAE8B7EA81B660F22128A4C5CC6000E2A6CCA983CA7D2105ED1D7456CE773E5343C0C0C34C0C7954765171717C57519031C24F00C16B742223FDE2CEE9D61807977005BDFAF874A1C9BB0FEA4286B86614357FAFB6A5D0348D330471BCC2C0C1B5E6C93FAEE4348D2711D71D850ADA52B5204A9229182BA063008BF9443E9A71DCD8034BD4F23DB004C28DE8F224359E83A5256B118221B13131370707050CB80308F5765F1B906C80FC6A858F6AA2B60ADA22335864C56D9AFE381386CE877846308FD1FA5DAAA13BC5079FA0C8D2163A5F8B9FE59ABAA0718540D9B4B03C3C63FC01F5BAC18D3C24621CD55CB0CA8173697464F56655B14295DF93443AFEA0169C0B36B561CCF8BF044287E1B4F649B9B9B433DA6A7A7616A6A2ABA270E7D7272526A80F0249A3F0AB5AD8DD5FBF7E1361E1949591DE913461D03AA82E3D54EBBFDAAA01F4F15EA6CE2CA066C6C6CC0ECECEC951B5074C87CA53D90DEB83AAEC503FF7B03AE2284C6C7C787367111AED400C7711284EBBAF0FCF973F149F42A0D5070E6E6E68CE5E5656394AF3B75707E7E2EFE4B797C7C0C474747FEE3C78FF563E5A5BE4A90E64BC67F543BCECECED64F4F4F5DA5B8C2B5FFBBE9BAF12FE63EEAB1BD45B3400000000049454E44AE426082</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">22</prop><prop prop-type="Type">TImage</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">{</prop><prop prop-type="Close">}</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Image1.Stretch" resname="O:AboutBox.O:Image1.Stretch">
+        <source>True</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">23</prop><prop prop-type="Type">TImage</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Left" resname="O:AboutBox.O:Label1.Left">
+        <source>62</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">24</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Top" resname="O:AboutBox.O:Label1.Top">
+        <source>24</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">25</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Width" resname="O:AboutBox.O:Label1.Width">
+        <source>64</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">26</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Height" resname="O:AboutBox.O:Label1.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">27</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Caption" resname="O:AboutBox.O:Label1.Caption">
+        <source>'Notepad Py'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">28</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Font.Charset" resname="O:AboutBox.O:Label1.Font.Charset">
+        <source>DEFAULT_CHARSET</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">29</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Font.Color" resname="O:AboutBox.O:Label1.Font.Color">
+        <source>clWindowText</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">30</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Font.Height" resname="O:AboutBox.O:Label1.Font.Height">
+        <source>-11</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">31</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Font.Name" resname="O:AboutBox.O:Label1.Font.Name">
+        <source>'Tahoma'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">32</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.Font.Style" resname="O:AboutBox.O:Label1.Font.Style">
+        <source>[fsBold]</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">33</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label1.ParentFont" resname="O:AboutBox.O:Label1.ParentFont">
+        <source>False</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">34</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblVersion.Left" resname="O:AboutBox.O:LblVersion.Left">
+        <source>62</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">35</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblVersion.Top" resname="O:AboutBox.O:LblVersion.Top">
+        <source>43</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">36</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblVersion.Width" resname="O:AboutBox.O:LblVersion.Width">
+        <source>48</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">37</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblVersion.Height" resname="O:AboutBox.O:LblVersion.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">38</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblVersion.Caption" resname="O:AboutBox.O:LblVersion.Caption">
+        <source>'LblVersion'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">39</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label3.Left" resname="O:AboutBox.O:Label3.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">40</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label3.Top" resname="O:AboutBox.O:Label3.Top">
+        <source>88</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">41</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label3.Width" resname="O:AboutBox.O:Label3.Width">
+        <source>39</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">42</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label3.Height" resname="O:AboutBox.O:Label3.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">43</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label3.Caption" resname="O:AboutBox.O:Label3.Caption">
+        <source>'Licença:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">44</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label4.Left" resname="O:AboutBox.O:Label4.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">45</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label4.Top" resname="O:AboutBox.O:Label4.Top">
+        <source>224</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">46</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label4.Width" resname="O:AboutBox.O:Label4.Width">
+        <source>182</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">47</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label4.Height" resname="O:AboutBox.O:Label4.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">48</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label4.Caption" resname="O:AboutBox.O:Label4.Caption">
+        <source>'Memória física disponível no Windows:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">49</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblMemory.Left" resname="O:AboutBox.O:LblMemory.Left">
+        <source>246</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">50</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblMemory.Top" resname="O:AboutBox.O:LblMemory.Top">
+        <source>224</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">51</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblMemory.Width" resname="O:AboutBox.O:LblMemory.Width">
+        <source>51</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">52</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblMemory.Height" resname="O:AboutBox.O:LblMemory.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">53</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblMemory.Alignment" resname="O:AboutBox.O:LblMemory.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">54</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblMemory.Caption" resname="O:AboutBox.O:LblMemory.Caption">
+        <source>'LblMemory'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">55</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label5.Left" resname="O:AboutBox.O:Label5.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">56</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label5.Top" resname="O:AboutBox.O:Label5.Top">
+        <source>256</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">57</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label5.Width" resname="O:AboutBox.O:Label5.Width">
+        <source>81</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">58</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label5.Height" resname="O:AboutBox.O:Label5.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">59</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:Label5.Caption" resname="O:AboutBox.O:Label5.Caption">
+        <source>'Memória em uso:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">60</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblInUse.Left" resname="O:AboutBox.O:LblInUse.Left">
+        <source>256</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">61</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblInUse.Top" resname="O:AboutBox.O:LblInUse.Top">
+        <source>256</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">62</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblInUse.Width" resname="O:AboutBox.O:LblInUse.Width">
+        <source>41</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">63</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblInUse.Height" resname="O:AboutBox.O:LblInUse.Height">
+        <source>13</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">64</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblInUse.Alignment" resname="O:AboutBox.O:LblInUse.Alignment">
+        <source>taRightJustify</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">65</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:LblInUse.Caption" resname="O:AboutBox.O:LblInUse.Caption">
+        <source>'LblInUse'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">66</prop><prop prop-type="Type">TLabel</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Left" resname="O:AboutBox.O:MemoCopyright.Left">
+        <source>8</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">67</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Top" resname="O:AboutBox.O:MemoCopyright.Top">
+        <source>107</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">68</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Width" resname="O:AboutBox.O:MemoCopyright.Width">
+        <source>289</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">69</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Height" resname="O:AboutBox.O:MemoCopyright.Height">
+        <source>100</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">70</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[0]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[0]">
+        <source>'MIT License'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">71</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop><prop prop-type="Open">(</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[1]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[1]">
+        <source>''</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">72</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[2]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[2]">
+        <source>'Copyright (c) 2021 Ilton Sequeira'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">73</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[3]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[3]">
+        <source>''</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">74</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[4]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[4]">
+        <source>'Permission is hereby granted, free of charge, to any '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">75</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[5]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[5]">
+        <source>'person obtaining a copy of this software and '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">76</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[6]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[6]">
+        <source>'associated documentation files (the "Software"), to '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">77</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[7]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[7]">
+        <source>'deal in the Software without restriction, including '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">78</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[8]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[8]">
+        <source>'without limitation the rights to use, copy, modify, '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">79</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[9]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[9]">
+        <source>'merge, publish, distribute, sublicense, and/or sell '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">80</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[10]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[10]">
+        <source>'copies of the Software, and to permit persons to '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">81</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[11]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[11]">
+        <source>'whom the Software is furnished to do so, subject to '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">82</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[12]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[12]">
+        <source>'the following conditions:'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">83</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[13]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[13]">
+        <source>''</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">84</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[14]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[14]">
+        <source>'The above copyright notice and this permission notice '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">85</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[15]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[15]">
+        <source>'shall be included in all copies or substantial portions of '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">86</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[16]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[16]">
+        <source>'the Software.'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">87</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[17]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[17]">
+        <source>''</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">88</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[18]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[18]">
+        <source>'THE SOFTWARE IS PROVIDED "AS IS", WITHOUT '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">89</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[19]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[19]">
+        <source>'WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">90</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[20]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[20]">
+        <source>'INCLUDING BUT NOT LIMITED TO THE WARRANTIES '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">91</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[21]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[21]">
+        <source>'OF MERCHANTABILITY, FITNESS FOR A PARTICULAR '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">92</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[22]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[22]">
+        <source>'PURPOSE AND NONINFRINGEMENT. IN NO EVENT '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">93</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[23]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[23]">
+        <source>'SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">94</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[24]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[24]">
+        <source>'LIABLE FOR ANY CLAIM, DAMAGES OR OTHER '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">95</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[25]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[25]">
+        <source>'LIABILITY, WHETHER IN AN ACTION OF CONTRACT, '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">96</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[26]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[26]">
+        <source>'TORT OR OTHERWISE, ARISING FROM, OUT OF OR '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">97</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[27]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[27]">
+        <source>'IN CONNECTION WITH THE SOFTWARE OR THE USE '</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">98</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.Lines.Strings[28]" resname="O:AboutBox.O:MemoCopyright.Lines.Strings[28]">
+        <source>'OR OTHER DEALINGS IN THE SOFTWARE.'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">99</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop><prop prop-type="Close">)</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.ScrollBars" resname="O:AboutBox.O:MemoCopyright.ScrollBars">
+        <source>ssVertical</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">100</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:MemoCopyright.TabOrder" resname="O:AboutBox.O:MemoCopyright.TabOrder">
+        <source>0</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">101</prop><prop prop-type="Type">TMemo</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:BtnFechar.Left" resname="O:AboutBox.O:BtnFechar.Left">
+        <source>222</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">102</prop><prop prop-type="Type">TButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:BtnFechar.Top" resname="O:AboutBox.O:BtnFechar.Top">
+        <source>283</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">103</prop><prop prop-type="Type">TButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:BtnFechar.Width" resname="O:AboutBox.O:BtnFechar.Width">
+        <source>75</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">104</prop><prop prop-type="Type">TButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:BtnFechar.Height" resname="O:AboutBox.O:BtnFechar.Height">
+        <source>25</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">105</prop><prop prop-type="Type">TButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:BtnFechar.Caption" resname="O:AboutBox.O:BtnFechar.Caption">
+        <source>'&amp;OK'</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">106</prop><prop prop-type="Type">TButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:BtnFechar.TabOrder" resname="O:AboutBox.O:BtnFechar.TabOrder">
+        <source>1</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">107</prop><prop prop-type="Type">TButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+      <trans-unit id="O:AboutBox.O:BtnFechar.OnClick" resname="O:AboutBox.O:BtnFechar.OnClick">
+        <source>BtnFecharClick</source>
+        <prop-group name="ITEFieldProp">
+        <prop prop-type="Created">44334.3877994792</prop><prop prop-type="Status">0</prop><prop prop-type="Order">108</prop><prop prop-type="Type">TButton</prop><prop prop-type="Localize">1</prop></prop-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

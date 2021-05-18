@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{468AD89E-B6E2-44A4-9626-7B0DCB8F832B}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="NotepadPy.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="ENU\NotepadPy_ENU.bdsproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="NotepadPy">
+        <MSBuild Projects="NotepadPy.dproj"/>
+    </Target>
+    <Target Name="NotepadPy:Clean">
+        <MSBuild Projects="NotepadPy.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NotepadPy:Make">
+        <MSBuild Projects="NotepadPy.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="NotepadPy_ENU">
+        <MSBuild Projects="ENU\NotepadPy_ENU.bdsproj"/>
+    </Target>
+    <Target Name="NotepadPy_ENU:Clean">
+        <MSBuild Projects="ENU\NotepadPy_ENU.bdsproj" Targets="Clean"/>
+    </Target>
+    <Target Name="NotepadPy_ENU:Make">
+        <MSBuild Projects="ENU\NotepadPy_ENU.bdsproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="NotepadPy;NotepadPy_ENU"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="NotepadPy:Clean;NotepadPy_ENU:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="NotepadPy:Make;NotepadPy_ENU:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
